@@ -330,3 +330,11 @@ region9.clrd.non <- region9.clrd[region9.clrd$Locality == 'Nonmetropolitan', ]
 region10.clrd.all <- region10.clrd[region10.clrd$Locality == 'All', ]
 region10.clrd.met <- region10.clrd[region10.clrd$Locality == 'Metropolitan', ]
 region10.clrd.non <- region10.clrd[region10.clrd$Locality == 'Nonmetropolitan', ]
+
+
+
+# Copy this format for both years
+region4.cancer.met.2005 <- region4.cancer.met[region4.cancer.met$Year == '2015', ]
+region4.cancer.non.2005 <- region4.cancer.non[region4.cancer.non$Year == '2015', ]
+region4.cancer.met.2015 <- region4.cancer.met[region4.cancer.met$Year == '2015', ]
+region4.cancer.non.2015 <- region4.cancer.non[region4.cancer.non$Year == '2015', ]
