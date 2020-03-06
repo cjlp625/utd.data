@@ -55,7 +55,7 @@ region6.ui <- region6[region6$Cause.of.Death == 'Unintentional Injury', ]
 region7.ui <- region7[region7$Cause.of.Death == 'Unintentional Injury', ]
 region8.ui <- region8[region8$Cause.of.Death == 'Unintentional Injury', ]
 region9.ui <- region9[region9$Cause.of.Death == 'Unintentional Injury', ]
-region10.ui <- region10[region10$Cause.of.Death == 'Unintentional Injury', ]
+region10.ui <- region10[region10$Cause.of.Death == 'Unintentional Injury', ]-
 
 # Creating indices of region indices by heart disease deaths
 region1.hd <- region1[region1$Cause.of.Death == 'Heart Disease', ]
@@ -334,7 +334,7 @@ region10.clrd.non <- region10.clrd[region10.clrd$Locality == 'Nonmetropolitan', 
 
 
 # Copy this format for both years
-region4.cancer.met.2005 <- region4.cancer.met[region4.cancer.met$Year == '2015', ]
-region4.cancer.non.2005 <- region4.cancer.non[region4.cancer.non$Year == '2015', ]
+region4.cancer.met.2005 <- region4.cancer.met[region4.cancer.met$Year == '2005', ]
+region4.cancer.non.2005 <- region4.cancer.non[region4.cancer.non$Year == '2005', ]
 region4.cancer.met.2015 <- region4.cancer.met[region4.cancer.met$Year == '2015', ]
 region4.cancer.non.2015 <- region4.cancer.non[region4.cancer.non$Year == '2015', ]
