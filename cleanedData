@@ -10,8 +10,6 @@ nchs.data[is.na(nchs.data)] <- 0
 
 # Creating indices of data set by region based on Health and Human Services (HHS) map
 # Regions are ranked 1-10
-# Region 0 is the whole country
-region0 <- nchs.data[nchs.data$HHS.Region == 0, ]
 region1 <- nchs.data[nchs.data$HHS.Region == 1, ]
 region2 <- nchs.data[nchs.data$HHS.Region == 2, ]
 region3 <- nchs.data[nchs.data$HHS.Region == 3, ]
@@ -24,7 +22,6 @@ region9 <- nchs.data[nchs.data$HHS.Region == 9, ]
 region10 <- nchs.data[nchs.data$HHS.Region == 10, ]
 
 # Creating indices of region indices by cancer deaths
-region0.cancer <- region0[region0$Cause.of.Death == 'Cancer', ]
 region1.cancer <- region1[region1$Cause.of.Death == 'Cancer', ]
 region2.cancer <- region2[region2$Cause.of.Death == 'Cancer', ]
 region3.cancer <- region3[region3$Cause.of.Death == 'Cancer', ]
@@ -37,7 +34,6 @@ region9.cancer <- region9[region9$Cause.of.Death == 'Cancer', ]
 region10.cancer <- region10[region10$Cause.of.Death == 'Cancer', ]
 
 # Creating indices of region indices by chronic lower respiratory disease deaths
-region0.clrd <- region0[region0$Cause.of.Death == 'Chronic Lower Respiratory Disease', ]
 region1.clrd <- region1[region1$Cause.of.Death == 'Chronic Lower Respiratory Disease', ]
 region2.clrd <- region2[region2$Cause.of.Death == 'Chronic Lower Respiratory Disease', ]
 region3.clrd <- region3[region3$Cause.of.Death == 'Chronic Lower Respiratory Disease', ]
@@ -50,7 +46,6 @@ region9.clrd <- region9[region9$Cause.of.Death == 'Chronic Lower Respiratory Dis
 region10.clrd <- region10[region10$Cause.of.Death == 'Chronic Lower Respiratory Disease', ]
 
 # Creating indices of region indices by chronic unintentional injury deaths
-region0.ui <- region0[region0$Cause.of.Death == 'Unintentional Injury', ]
 region1.ui <- region1[region1$Cause.of.Death == 'Unintentional Injury', ]
 region2.ui <- region2[region2$Cause.of.Death == 'Unintentional Injury', ]
 region3.ui <- region3[region3$Cause.of.Death == 'Unintentional Injury', ]
@@ -63,7 +58,6 @@ region9.ui <- region9[region9$Cause.of.Death == 'Unintentional Injury', ]
 region10.ui <- region10[region10$Cause.of.Death == 'Unintentional Injury', ]
 
 # Creating indices of region indices by heart disease deaths
-region0.hd <- region0[region0$Cause.of.Death == 'Heart Disease', ]
 region1.hd <- region1[region1$Cause.of.Death == 'Heart Disease', ]
 region2.hd <- region2[region2$Cause.of.Death == 'Heart Disease', ]
 region3.hd <- region3[region3$Cause.of.Death == 'Heart Disease', ]
@@ -76,7 +70,6 @@ region9.hd <- region9[region9$Cause.of.Death == 'Heart Disease', ]
 region10.hd <- region10[region10$Cause.of.Death == 'Heart Disease', ]
 
 # Creating indices of region indices by stroke deaths
-region0.stroke <- region0[region0$Cause.of.Death == 'Stroke', ]
 region1.stroke <- region1[region1$Cause.of.Death == 'Stroke', ]
 region2.stroke <- region2[region2$Cause.of.Death == 'Stroke', ]
 region3.stroke <- region3[region3$Cause.of.Death == 'Stroke', ]
@@ -87,11 +80,6 @@ region7.stroke <- region7[region7$Cause.of.Death == 'Stroke', ]
 region8.stroke <- region8[region8$Cause.of.Death == 'Stroke', ]
 region9.stroke <- region9[region9$Cause.of.Death == 'Stroke', ]
 region10.stroke <- region10[region10$Cause.of.Death == 'Stroke', ]
-
-# Creating indices of stroke indices for U.S. categorized by either inside or outside of the city or both
-region0.stroke.all <- region0.stroke[region0.stroke$Locality == 'All', ]
-region0.stroke.met <- region0.stroke[region0.stroke$Locality == 'Metropolitan', ]
-region0.stroke.non <- region0.stroke[region0.stroke$Locality == 'Nonmetropolitan', ]
 
 # Repeat for region 1
 region1.stroke.all <- region1.stroke[region1.stroke$Locality == 'All', ]
@@ -143,11 +131,6 @@ region10.stroke.all <- region10.stroke[region10.stroke$Locality == 'All', ]
 region10.stroke.met <- region10.stroke[region10.stroke$Locality == 'Metropolitan', ]
 region10.stroke.non <- region10.stroke[region10.stroke$Locality == 'Nonmetropolitan', ]
 
-# Creating indices of cancer indices for U.S. categorized by either inside or outside of the city or both
-region0.cancer.all <- region0.cancer[region0.cancer$Locality == 'All', ]
-region0.cancer.met <- region0.cancer[region0.cancer$Locality == 'Metropolitan', ]
-region0.stroke.non <- region0.cancer[region0.cancer$Locality == 'Nonmetropolitan', ]
-
 # Repeat for region 1
 region1.cancer.all <- region1.cancer[region1.cancer$Locality == 'All', ]
 region1.cancer.met <- region1.cancer[region1.cancer$Locality == 'Metropolitan', ]
@@ -197,11 +180,6 @@ region9.cancer.non <- region9.cancer[region9.cancer$Locality == 'Nonmetropolitan
 region10.cancer.all <- region10.cancer[region10.cancer$Locality == 'All', ]
 region10.cancer.met <- region10.cancer[region10.cancer$Locality == 'Metropolitan', ]
 region10.cancer.non <- region10.cancer[region10.cancer$Locality == 'Nonmetropolitan', ]
-
-# Creating indices of unintentional injury indices for U.S. categorized by either inside or outside of the city or both
-region0.ui.all <- region0.ui[region0.ui$Locality == 'All', ]
-region0.ui.met <- region0.ui[region0.ui$Locality == 'Metropolitan', ]
-region0.ui.non <- region0.ui[region0.ui$Locality == 'Nonmetropolitan', ]
 
 # Repeat for region 1
 region1.ui.all <- region1.ui[region1.ui$Locality == 'All', ]
@@ -253,11 +231,6 @@ region10.ui.all <- region10.ui[region10.ui$Locality == 'All', ]
 region10.ui.met <- region10.ui[region10.ui$Locality == 'Metropolitan', ]
 region10.ui.non <- region10.ui[region10.ui$Locality == 'Nonmetropolitan', ]
 
-# Creating indices of heart disease indices for U.S. categorized by either inside or outside of the city or both
-region0.hd.all <- region0.hd[region0.hd$Locality == 'All', ]
-region0.hd.met <- region0.hd[region0.hd$Locality == 'Metropolitan', ]
-region0.hd.non <- region0.hd[region0.hd$Locality == 'Nonmetropolitan', ]
-
 # Repeat for region 1
 region1.hd.all <- region1.hd[region1.hd$Locality == 'All', ]
 region1.hd.met <- region1.hd[region1.hd$Locality == 'Metropolitan', ]
@@ -307,11 +280,6 @@ region9.hd.non <- region9.hd[region9.hd$Locality == 'Nonmetropolitan', ]
 region10.hd.all <- region10.hd[region10.hd$Locality == 'All', ]
 region10.hd.met <- region10.hd[region10.hd$Locality == 'Metropolitan', ]
 region10.hd.non <- region10.hd[region10.hd$Locality == 'Nonmetropolitan', ]
-
-# Creating indices of chronic lower respiratory disease indices for U.S. categorized by either inside or outside of the city or both
-region0.clrd.all <- region0.clrd[region0.clrd$Locality == 'All', ]
-region0.clrd.met <- region0.clrd[region0.clrd$Locality == 'Metropolitan', ]
-region0.clrd.non <- region0.clrd[region0.clrd$Locality == 'Nonmetropolitan', ]
 
 # Repeat for region 1
 region1.clrd.all <- region1.clrd[region1.clrd$Locality == 'All', ]
