@@ -331,10 +331,261 @@ region10.clrd.all <- region10.clrd[region10.clrd$Locality == 'All', ]
 region10.clrd.met <- region10.clrd[region10.clrd$Locality == 'Metropolitan', ]
 region10.clrd.non <- region10.clrd[region10.clrd$Locality == 'Nonmetropolitan', ]
 
+# stroke-year breakdown
+region1.stroke.met.2005 <- region1.stroke.met[region1.stroke.met$Year == '2005', ]
+region1.stroke.non.2005 <- region1.stroke.non[region1.stroke.non$Year == '2005', ]
+region1.stroke.met.2015 <- region1.stroke.met[region1.stroke.met$Year == '2015', ]
+region1.stroke.non.2015 <- region1.stroke.non[region1.stroke.non$Year == '2015', ]
 
+region2.stroke.met.2005 <- region2.stroke.met[region2.stroke.met$Year == '2005', ]
+region2.stroke.non.2005 <- region2.stroke.non[region2.stroke.non$Year == '2005', ]
+region2.stroke.met.2015 <- region2.stroke.met[region2.stroke.met$Year == '2015', ]
+region2.stroke.non.2015 <- region2.stroke.non[region2.stroke.non$Year == '2015', ]
 
-# Copy this format for both years
+region3.stroke.met.2005 <- region3.stroke.met[region3.stroke.met$Year == '2005', ]
+region3.stroke.non.2005 <- region3.stroke.non[region3.stroke.non$Year == '2005', ]
+region3.stroke.met.2015 <- region3.stroke.met[region3.stroke.met$Year == '2015', ]
+region3.stroke.non.2015 <- region3.stroke.non[region3.stroke.non$Year == '2015', ]
+
+region4.stroke.met.2005 <- region4.stroke.met[region4.stroke.met$Year == '2005', ]
+region4.stroke.non.2005 <- region4.stroke.non[region4.stroke.non$Year == '2005', ]
+region4.stroke.met.2015 <- region4.stroke.met[region4.stroke.met$Year == '2015', ]
+region4.stroke.non.2015 <- region4.stroke.non[region4.stroke.non$Year == '2015', ]
+
+region5.stroke.met.2005 <- region5.stroke.met[region5.stroke.met$Year == '2005', ]
+region5.stroke.non.2005 <- region5.stroke.non[region5.stroke.non$Year == '2005', ]
+region5.stroke.met.2015 <- region5.stroke.met[region5.stroke.met$Year == '2015', ]
+region5.stroke.non.2015 <- region5.stroke.non[region5.stroke.non$Year == '2015', ]
+
+region6.stroke.met.2005 <- region6.stroke.met[region6.stroke.met$Year == '2005', ]
+region6.stroke.non.2005 <- region6.stroke.non[region6.stroke.non$Year == '2005', ]
+region6.stroke.met.2015 <- region6.stroke.met[region6.stroke.met$Year == '2015', ]
+region6.stroke.non.2015 <- region6.stroke.non[region6.stroke.non$Year == '2015', ]
+
+region7.stroke.met.2005 <- region7.stroke.met[region7.stroke.met$Year == '2005', ]
+region7.stroke.non.2005 <- region7.stroke.non[region7.stroke.non$Year == '2005', ]
+region7.stroke.met.2015 <- region7.stroke.met[region7.stroke.met$Year == '2015', ]
+region7.stroke.non.2015 <- region7.stroke.non[region7.stroke.non$Year == '2015', ]
+
+region8.stroke.met.2005 <- region8.stroke.met[region8.stroke.met$Year == '2005', ]
+region8.stroke.non.2005 <- region8.stroke.non[region8.stroke.non$Year == '2005', ]
+region8.stroke.met.2015 <- region8.stroke.met[region8.stroke.met$Year == '2015', ]
+region8.stroke.non.2015 <- region8.stroke.non[region8.stroke.non$Year == '2015', ]
+
+region9.stroke.met.2005 <- region9.stroke.met[region9.stroke.met$Year == '2005', ]
+region9.stroke.non.2005 <- region9.stroke.non[region9.stroke.non$Year == '2005', ]
+region9.stroke.met.2015 <- region9.stroke.met[region9.stroke.met$Year == '2015', ]
+region9.stroke.non.2015 <- region9.stroke.non[region9.stroke.non$Year == '2015', ]
+
+region10.stroke.met.2005 <- region10.stroke.met[region10.stroke.met$Year == '2005', ]
+region10.stroke.non.2005 <- region10.stroke.non[region10.stroke.non$Year == '2005', ]
+region10.stroke.met.2015 <- region10.stroke.met[region10.stroke.met$Year == '2015', ]
+region10.stroke.non.2015 <- region10.stroke.non[region10.stroke.non$Year == '2015', ]
+
+# cancer-year breakdown
+region1.cancer.met.2005 <- region1.cancer.met[region1.cancer.met$Year == '2005', ]
+region1.cancer.non.2005 <- region1.cancer.non[region1.cancer.non$Year == '2005', ]
+region1.cancer.met.2015 <- region1.cancer.met[region1.cancer.met$Year == '2015', ]
+region1.cancer.non.2015 <- region1.cancer.non[region1.cancer.non$Year == '2015', ]
+
+region2.cancer.met.2005 <- region2.cancer.met[region2.cancer.met$Year == '2005', ]
+region2.cancer.non.2005 <- region2.cancer.non[region2.cancer.non$Year == '2005', ]
+region2.cancer.met.2015 <- region2.cancer.met[region2.cancer.met$Year == '2015', ]
+region2.cancer.non.2015 <- region2.cancer.non[region2.cancer.non$Year == '2015', ]
+
+region3.cancer.met.2005 <- region3.cancer.met[region3.cancer.met$Year == '2005', ]
+region3.cancer.non.2005 <- region3.cancer.non[region3.cancer.non$Year == '2005', ]
+region3.cancer.met.2015 <- region3.cancer.met[region3.cancer.met$Year == '2015', ]
+region3.cancer.non.2015 <- region3.cancer.non[region3.cancer.non$Year == '2015', ]
+
 region4.cancer.met.2005 <- region4.cancer.met[region4.cancer.met$Year == '2005', ]
 region4.cancer.non.2005 <- region4.cancer.non[region4.cancer.non$Year == '2005', ]
 region4.cancer.met.2015 <- region4.cancer.met[region4.cancer.met$Year == '2015', ]
 region4.cancer.non.2015 <- region4.cancer.non[region4.cancer.non$Year == '2015', ]
+
+region5.cancer.met.2005 <- region5.cancer.met[region5.cancer.met$Year == '2005', ]
+region5.cancer.non.2005 <- region5.cancer.non[region5.cancer.non$Year == '2005', ]
+region5.cancer.met.2015 <- region5.cancer.met[region5.cancer.met$Year == '2015', ]
+region5.cancer.non.2015 <- region5.cancer.non[region5.cancer.non$Year == '2015', ]
+
+region6.cancer.met.2005 <- region6.cancer.met[region6.cancer.met$Year == '2005', ]
+region6.cancer.non.2005 <- region6.cancer.non[region6.cancer.non$Year == '2005', ]
+region6.cancer.met.2015 <- region6.cancer.met[region6.cancer.met$Year == '2015', ]
+region6.cancer.non.2015 <- region6.cancer.non[region6.cancer.non$Year == '2015', ]
+
+region7.cancer.met.2005 <- region7.cancer.met[region7.cancer.met$Year == '2005', ]
+region7.cancer.non.2005 <- region7.cancer.non[region7.cancer.non$Year == '2005', ]
+region7.cancer.met.2015 <- region7.cancer.met[region7.cancer.met$Year == '2015', ]
+region7.cancer.non.2015 <- region7.cancer.non[region7.cancer.non$Year == '2015', ]
+
+region8.cancer.met.2005 <- region8.cancer.met[region8.cancer.met$Year == '2005', ]
+region8.cancer.non.2005 <- region8.cancer.non[region8.cancer.non$Year == '2005', ]
+region8.cancer.met.2015 <- region8.cancer.met[region8.cancer.met$Year == '2015', ]
+region8.cancer.non.2015 <- region8.cancer.non[region8.cancer.non$Year == '2015', ]
+
+region9.cancer.met.2005 <- region9.cancer.met[region9.cancer.met$Year == '2005', ]
+region9.cancer.non.2005 <- region9.cancer.non[region9.cancer.non$Year == '2005', ]
+region9.cancer.met.2015 <- region9.cancer.met[region9.cancer.met$Year == '2015', ]
+region9.cancer.non.2015 <- region9.cancer.non[region9.cancer.non$Year == '2015', ]
+
+region10.cancer.met.2005 <- region10.cancer.met[region10.cancer.met$Year == '2005', ]
+region10.cancer.non.2005 <- region10.cancer.non[region10.cancer.non$Year == '2005', ]
+region10.cancer.met.2015 <- region10.cancer.met[region10.cancer.met$Year == '2015', ]
+region10.cancer.non.2015 <- region10.cancer.non[region10.cancer.non$Year == '2015', ]
+
+# hd-year breakdown
+region1.hd.met.2005 <- region1.hd.met[region1.hd.met$Year == '2005', ]
+region1.hd.non.2005 <- region1.hd.non[region1.hd.non$Year == '2005', ]
+region1.hd.met.2015 <- region1.hd.met[region1.hd.met$Year == '2015', ]
+region1.hd.non.2015 <- region1.hd.non[region1.hd.non$Year == '2015', ]
+
+region2.hd.met.2005 <- region2.hd.met[region2.hd.met$Year == '2005', ]
+region2.hd.non.2005 <- region2.hd.non[region2.hd.non$Year == '2005', ]
+region2.hd.met.2015 <- region2.hd.met[region2.hd.met$Year == '2015', ]
+region2.hd.non.2015 <- region2.hd.non[region2.hd.non$Year == '2015', ]
+
+region3.hd.met.2005 <- region3.hd.met[region3.hd.met$Year == '2005', ]
+region3.hd.non.2005 <- region3.hd.non[region3.hd.non$Year == '2005', ]
+region3.hd.met.2015 <- region3.hd.met[region3.hd.met$Year == '2015', ]
+region3.hd.non.2015 <- region3.hd.non[region3.hd.non$Year == '2015', ]
+
+region4.hd.met.2005 <- region4.hd.met[region4.hd.met$Year == '2005', ]
+region4.hd.non.2005 <- region4.hd.non[region4.hd.non$Year == '2005', ]
+region4.hd.met.2015 <- region4.hd.met[region4.hd.met$Year == '2015', ]
+region4.hd.non.2015 <- region4.hd.non[region4.hd.non$Year == '2015', ]
+
+region5.hd.met.2005 <- region5.hd.met[region5.hd.met$Year == '2005', ]
+region5.hd.non.2005 <- region5.hd.non[region5.hd.non$Year == '2005', ]
+region5.hd.met.2015 <- region5.hd.met[region5.hd.met$Year == '2015', ]
+region5.hd.non.2015 <- region5.hd.non[region5.hd.non$Year == '2015', ]
+
+region6.hd.met.2005 <- region6.hd.met[region6.hd.met$Year == '2005', ]
+region6.hd.non.2005 <- region6.hd.non[region6.hd.non$Year == '2005', ]
+region6.hd.met.2015 <- region6.hd.met[region6.hd.met$Year == '2015', ]
+region6.hd.non.2015 <- region6.hd.non[region6.hd.non$Year == '2015', ]
+
+region7.hd.met.2005 <- region7.hd.met[region7.hd.met$Year == '2005', ]
+region7.hd.non.2005 <- region7.hd.non[region7.hd.non$Year == '2005', ]
+region7.hd.met.2015 <- region7.hd.met[region7.hd.met$Year == '2015', ]
+region7.hd.non.2015 <- region7.hd.non[region7.hd.non$Year == '2015', ]
+
+region8.hd.met.2005 <- region8.hd.met[region8.hd.met$Year == '2005', ]
+region8.hd.non.2005 <- region8.hd.non[region8.hd.non$Year == '2005', ]
+region8.hd.met.2015 <- region8.hd.met[region8.hd.met$Year == '2015', ]
+region8.hd.non.2015 <- region8.hd.non[region8.hd.non$Year == '2015', ]
+
+region9.hd.met.2005 <- region9.hd.met[region9.hd.met$Year == '2005', ]
+region9.hd.non.2005 <- region9.hd.non[region9.hd.non$Year == '2005', ]
+region9.hd.met.2015 <- region9.hd.met[region9.hd.met$Year == '2015', ]
+region9.hd.non.2015 <- region9.hd.non[region9.hd.non$Year == '2015', ]
+
+region10.hd.met.2005 <- region10.hd.met[region10.hd.met$Year == '2005', ]
+region10.hd.non.2005 <- region10.hd.non[region10.hd.non$Year == '2005', ]
+region10.hd.met.2015 <- region10.hd.met[region10.hd.met$Year == '2015', ]
+region10.hd.non.2015 <- region10.hd.non[region10.hd.non$Year == '2015', ]
+
+# clrd-year breakdown
+region1.clrd.met.2005 <- region1.clrd.met[region1.clrd.met$Year == '2005', ]
+region1.clrd.non.2005 <- region1.clrd.non[region1.clrd.non$Year == '2005', ]
+region1.clrd.met.2015 <- region1.clrd.met[region1.clrd.met$Year == '2015', ]
+region1.clrd.non.2015 <- region1.clrd.non[region1.clrd.non$Year == '2015', ]
+
+region2.clrd.met.2005 <- region2.clrd.met[region2.clrd.met$Year == '2005', ]
+region2.clrd.non.2005 <- region2.clrd.non[region2.clrd.non$Year == '2005', ]
+region2.clrd.met.2015 <- region2.clrd.met[region2.clrd.met$Year == '2015', ]
+region2.clrd.non.2015 <- region2.clrd.non[region2.clrd.non$Year == '2015', ]
+
+region3.clrd.met.2005 <- region3.clrd.met[region3.clrd.met$Year == '2005', ]
+region3.clrd.non.2005 <- region3.clrd.non[region3.clrd.non$Year == '2005', ]
+region3.clrd.met.2015 <- region3.clrd.met[region3.clrd.met$Year == '2015', ]
+region3.clrd.non.2015 <- region3.clrd.non[region3.clrd.non$Year == '2015', ]
+
+region4.clrd.met.2005 <- region4.clrd.met[region4.clrd.met$Year == '2005', ]
+region4.clrd.non.2005 <- region4.clrd.non[region4.clrd.non$Year == '2005', ]
+region4.clrd.met.2015 <- region4.clrd.met[region4.clrd.met$Year == '2015', ]
+region4.clrd.non.2015 <- region4.clrd.non[region4.clrd.non$Year == '2015', ]
+
+region5.clrd.met.2005 <- region5.clrd.met[region5.clrd.met$Year == '2005', ]
+region5.clrd.non.2005 <- region5.clrd.non[region5.clrd.non$Year == '2005', ]
+region5.clrd.met.2015 <- region5.clrd.met[region5.clrd.met$Year == '2015', ]
+region5.clrd.non.2015 <- region5.clrd.non[region5.clrd.non$Year == '2015', ]
+
+region6.clrd.met.2005 <- region6.clrd.met[region6.clrd.met$Year == '2005', ]
+region6.clrd.non.2005 <- region6.clrd.non[region6.clrd.non$Year == '2005', ]
+region6.clrd.met.2015 <- region6.clrd.met[region6.clrd.met$Year == '2015', ]
+region6.clrd.non.2015 <- region6.clrd.non[region6.clrd.non$Year == '2015', ]
+
+region7.clrd.met.2005 <- region7.clrd.met[region7.clrd.met$Year == '2005', ]
+region7.clrd.non.2005 <- region7.clrd.non[region7.clrd.non$Year == '2005', ]
+region7.clrd.met.2015 <- region7.clrd.met[region7.clrd.met$Year == '2015', ]
+region7.clrd.non.2015 <- region7.clrd.non[region7.clrd.non$Year == '2015', ]
+
+region8.clrd.met.2005 <- region8.clrd.met[region8.clrd.met$Year == '2005', ]
+region8.clrd.non.2005 <- region8.clrd.non[region8.clrd.non$Year == '2005', ]
+region8.clrd.met.2015 <- region8.clrd.met[region8.clrd.met$Year == '2015', ]
+region8.clrd.non.2015 <- region8.clrd.non[region8.clrd.non$Year == '2015', ]
+
+region9.clrd.met.2005 <- region9.clrd.met[region9.clrd.met$Year == '2005', ]
+region9.clrd.non.2005 <- region9.clrd.non[region9.clrd.non$Year == '2005', ]
+region9.clrd.met.2015 <- region9.clrd.met[region9.clrd.met$Year == '2015', ]
+region9.clrd.non.2015 <- region9.clrd.non[region9.clrd.non$Year == '2015', ]
+
+region10.clrd.met.2005 <- region10.clrd.met[region10.clrd.met$Year == '2005', ]
+region10.clrd.non.2005 <- region10.clrd.non[region10.clrd.non$Year == '2005', ]
+region10.clrd.met.2015 <- region10.clrd.met[region10.clrd.met$Year == '2015', ]
+region10.clrd.non.2015 <- region10.clrd.non[region10.clrd.non$Year == '2015', ]
+
+# ui-year breakdown
+region1.ui.met.2005 <- region1.ui.met[region1.ui.met$Year == '2005', ]
+region1.ui.non.2005 <- region1.ui.non[region1.ui.non$Year == '2005', ]
+region1.ui.met.2015 <- region1.ui.met[region1.ui.met$Year == '2015', ]
+region1.ui.non.2015 <- region1.ui.non[region1.ui.non$Year == '2015', ]
+
+region2.ui.met.2005 <- region2.ui.met[region2.ui.met$Year == '2005', ]
+region2.ui.non.2005 <- region2.ui.non[region2.ui.non$Year == '2005', ]
+region2.ui.met.2015 <- region2.ui.met[region2.ui.met$Year == '2015', ]
+region2.ui.non.2015 <- region2.ui.non[region2.ui.non$Year == '2015', ]
+
+region3.ui.met.2005 <- region3.ui.met[region3.ui.met$Year == '2005', ]
+region3.ui.non.2005 <- region3.ui.non[region3.ui.non$Year == '2005', ]
+region3.ui.met.2015 <- region3.ui.met[region3.ui.met$Year == '2015', ]
+region3.ui.non.2015 <- region3.ui.non[region3.ui.non$Year == '2015', ]
+
+region4.ui.met.2005 <- region4.ui.met[region4.ui.met$Year == '2005', ]
+region4.ui.non.2005 <- region4.ui.non[region4.ui.non$Year == '2005', ]
+region4.ui.met.2015 <- region4.ui.met[region4.ui.met$Year == '2015', ]
+region4.ui.non.2015 <- region4.ui.non[region4.ui.non$Year == '2015', ]
+
+region5.ui.met.2005 <- region5.ui.met[region5.ui.met$Year == '2005', ]
+region5.ui.non.2005 <- region5.ui.non[region5.ui.non$Year == '2005', ]
+region5.ui.met.2015 <- region5.ui.met[region5.ui.met$Year == '2015', ]
+region5.ui.non.2015 <- region5.ui.non[region5.ui.non$Year == '2015', ]
+
+region6.ui.met.2005 <- region6.ui.met[region6.ui.met$Year == '2005', ]
+region6.ui.non.2005 <- region6.ui.non[region6.ui.non$Year == '2005', ]
+region6.ui.met.2015 <- region6.ui.met[region6.ui.met$Year == '2015', ]
+region6.ui.non.2015 <- region6.ui.non[region6.ui.non$Year == '2015', ]
+
+region7.ui.met.2005 <- region7.ui.met[region7.ui.met$Year == '2005', ]
+region7.ui.non.2005 <- region7.ui.non[region7.ui.non$Year == '2005', ]
+region7.ui.met.2015 <- region7.ui.met[region7.ui.met$Year == '2015', ]
+region7.ui.non.2015 <- region7.ui.non[region7.ui.non$Year == '2015', ]
+
+region8.ui.met.2005 <- region8.ui.met[region8.ui.met$Year == '2005', ]
+region8.ui.non.2005 <- region8.ui.non[region8.ui.non$Year == '2005', ]
+region8.ui.met.2015 <- region8.ui.met[region8.ui.met$Year == '2015', ]
+region8.ui.non.2015 <- region8.ui.non[region8.ui.non$Year == '2015', ]
+
+region9.ui.met.2005 <- region9.ui.met[region9.ui.met$Year == '2005', ]
+region9.ui.non.2005 <- region9.ui.non[region9.ui.non$Year == '2005', ]
+region9.ui.met.2015 <- region9.ui.met[region9.ui.met$Year == '2015', ]
+region9.ui.non.2015 <- region9.ui.non[region9.ui.non$Year == '2015', ]
+
+region10.ui.met.2005 <- region10.ui.met[region10.ui.met$Year == '2005', ]
+region10.ui.non.2005 <- region10.ui.non[region10.ui.non$Year == '2005', ]
+region10.ui.met.2015 <- region10.ui.met[region10.ui.met$Year == '2015', ]
+region10.ui.non.2015 <- region10.ui.non[region10.ui.non$Year == '2015', ]
+
+
+
+
