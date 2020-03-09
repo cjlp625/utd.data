@@ -535,3 +535,292 @@ region10.ui.met.2005 <- region10.ui.met[region10.ui.met$Year == '2005', ]
 region10.ui.non.2005 <- region10.ui.non[region10.ui.non$Year == '2005', ]
 region10.ui.met.2015 <- region10.ui.met[region10.ui.met$Year == '2015', ]
 region10.ui.non.2015 <- region10.ui.non[region10.ui.non$Year == '2015', ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+
+
+
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+
+
+
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+
+
+
+
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+
+
+
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+
+
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+
+
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+
+
+
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+
+
+
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+
+
+
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
