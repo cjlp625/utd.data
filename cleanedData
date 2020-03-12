@@ -8,819 +8,241 @@ nchs.data <- read.csv(file = 'nchs.csv', header = TRUE)
 # Setting all blank values to 0
 nchs.data[is.na(nchs.data)] <- 0
 
-# Creating indices of data set by region based on Health and Human Services (HHS) map
-# Regions are ranked 1-10
-region1 <- nchs.data[nchs.data$HHS.Region == 1, ]
-region2 <- nchs.data[nchs.data$HHS.Region == 2, ]
-region3 <- nchs.data[nchs.data$HHS.Region == 3, ]
-region4 <- nchs.data[nchs.data$HHS.Region == 4, ]
-region5 <- nchs.data[nchs.data$HHS.Region == 5, ]
-region6 <- nchs.data[nchs.data$HHS.Region == 6, ]
-region7 <- nchs.data[nchs.data$HHS.Region == 7, ]
-region8 <- nchs.data[nchs.data$HHS.Region == 8, ]
-region9 <- nchs.data[nchs.data$HHS.Region == 9, ]
-region10 <- nchs.data[nchs.data$HHS.Region == 10, ]
-
-# Creating indices of region indices by cancer deaths
-region1.cancer <- region1[region1$Cause.of.Death == 'Cancer', ]
-region2.cancer <- region2[region2$Cause.of.Death == 'Cancer', ]
-region3.cancer <- region3[region3$Cause.of.Death == 'Cancer', ]
-region4.cancer <- region4[region4$Cause.of.Death == 'Cancer', ]
-region5.cancer <- region5[region5$Cause.of.Death == 'Cancer', ]
-region6.cancer <- region6[region6$Cause.of.Death == 'Cancer', ]
-region7.cancer <- region7[region7$Cause.of.Death == 'Cancer', ]
-region8.cancer <- region8[region8$Cause.of.Death == 'Cancer', ]
-region9.cancer <- region9[region9$Cause.of.Death == 'Cancer', ]
-region10.cancer <- region10[region10$Cause.of.Death == 'Cancer', ]
-
-# Creating indices of region indices by chronic lower respiratory disease deaths
-region1.clrd <- region1[region1$Cause.of.Death == 'Chronic Lower Respiratory Disease', ]
-region2.clrd <- region2[region2$Cause.of.Death == 'Chronic Lower Respiratory Disease', ]
-region3.clrd <- region3[region3$Cause.of.Death == 'Chronic Lower Respiratory Disease', ]
-region4.clrd <- region4[region4$Cause.of.Death == 'Chronic Lower Respiratory Disease', ]
-region5.clrd <- region5[region5$Cause.of.Death == 'Chronic Lower Respiratory Disease', ]
-region6.clrd <- region6[region6$Cause.of.Death == 'Chronic Lower Respiratory Disease', ]
-region7.clrd <- region7[region7$Cause.of.Death == 'Chronic Lower Respiratory Disease', ]
-region8.clrd <- region8[region8$Cause.of.Death == 'Chronic Lower Respiratory Disease', ]
-region9.clrd <- region9[region9$Cause.of.Death == 'Chronic Lower Respiratory Disease', ]
-region10.clrd <- region10[region10$Cause.of.Death == 'Chronic Lower Respiratory Disease', ]
-
-# Creating indices of region indices by chronic unintentional injury deaths
-region1.ui <- region1[region1$Cause.of.Death == 'Unintentional Injury', ]
-region2.ui <- region2[region2$Cause.of.Death == 'Unintentional Injury', ]
-region3.ui <- region3[region3$Cause.of.Death == 'Unintentional Injury', ]
-region4.ui <- region4[region4$Cause.of.Death == 'Unintentional Injury', ]
-region5.ui <- region5[region5$Cause.of.Death == 'Unintentional Injury', ]
-region6.ui <- region6[region6$Cause.of.Death == 'Unintentional Injury', ]
-region7.ui <- region7[region7$Cause.of.Death == 'Unintentional Injury', ]
-region8.ui <- region8[region8$Cause.of.Death == 'Unintentional Injury', ]
-region9.ui <- region9[region9$Cause.of.Death == 'Unintentional Injury', ]
-region10.ui <- region10[region10$Cause.of.Death == 'Unintentional Injury', ]-
-
-# Creating indices of region indices by heart disease deaths
-region1.hd <- region1[region1$Cause.of.Death == 'Heart Disease', ]
-region2.hd <- region2[region2$Cause.of.Death == 'Heart Disease', ]
-region3.hd <- region3[region3$Cause.of.Death == 'Heart Disease', ]
-region4.hd <- region4[region4$Cause.of.Death == 'Heart Disease', ]
-region5.hd <- region5[region5$Cause.of.Death == 'Heart Disease', ]
-region6.hd <- region6[region6$Cause.of.Death == 'Heart Disease', ]
-region7.hd <- region7[region7$Cause.of.Death == 'Heart Disease', ]
-region8.hd <- region8[region8$Cause.of.Death == 'Heart Disease', ]
-region9.hd <- region9[region9$Cause.of.Death == 'Heart Disease', ]
-region10.hd <- region10[region10$Cause.of.Death == 'Heart Disease', ]
-
-# Creating indices of region indices by stroke deaths
-region1.stroke <- region1[region1$Cause.of.Death == 'Stroke', ]
-region2.stroke <- region2[region2$Cause.of.Death == 'Stroke', ]
-region3.stroke <- region3[region3$Cause.of.Death == 'Stroke', ]
-region4.stroke <- region4[region4$Cause.of.Death == 'Stroke', ]
-region5.stroke <- region5[region5$Cause.of.Death == 'Stroke', ]
-region6.stroke <- region6[region6$Cause.of.Death == 'Stroke', ]
-region7.stroke <- region7[region7$Cause.of.Death == 'Stroke', ]
-region8.stroke <- region8[region8$Cause.of.Death == 'Stroke', ]
-region9.stroke <- region9[region9$Cause.of.Death == 'Stroke', ]
-region10.stroke <- region10[region10$Cause.of.Death == 'Stroke', ]
-
-# Repeat for region 1
-region1.stroke.met <- region1.stroke[region1.stroke$Locality == 'Metropolitan', ]
-region1.stroke.non <- region1.stroke[region1.stroke$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 2
-region2.stroke.met <- region2.stroke[region2.stroke$Locality == 'Metropolitan', ]
-region2.stroke.non <- region2.stroke[region2.stroke$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 3
-region3.stroke.met <- region3.stroke[region3.stroke$Locality == 'Metropolitan', ]
-region3.stroke.non <- region3.stroke[region3.stroke$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 4 
-region4.stroke.met <- region4.stroke[region4.stroke$Locality == 'Metropolitan', ]
-region4.stroke.non <- region4.stroke[region4.stroke$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 5 
-region5.stroke.met <- region5.stroke[region5.stroke$Locality == 'Metropolitan', ]
-region5.stroke.non <- region5.stroke[region5.stroke$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 6 
-region6.stroke.met <- region6.stroke[region6.stroke$Locality == 'Metropolitan', ]
-region6.stroke.non <- region6.stroke[region6.stroke$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 7 
-region7.stroke.met <- region7.stroke[region7.stroke$Locality == 'Metropolitan', ]
-region7.stroke.non <- region7.stroke[region7.stroke$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 8 
-region8.stroke.met <- region8.stroke[region8.stroke$Locality == 'Metropolitan', ]
-region8.stroke.non <- region8.stroke[region8.stroke$Locality == 'Nonmetropolitan', ]
 
-# Repeat for region 9 
-region9.stroke.met <- region9.stroke[region9.stroke$Locality == 'Metropolitan', ]
-region9.stroke.non <- region9.stroke[region9.stroke$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 10 
-region10.stroke.met <- region10.stroke[region10.stroke$Locality == 'Metropolitan', ]
-region10.stroke.non <- region10.stroke[region10.stroke$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 1
-region1.cancer.met <- region1.cancer[region1.cancer$Locality == 'Metropolitan', ]
-region1.cancer.non <- region1.cancer[region1.cancer$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 2
-region2.cancer.met <- region2.cancer[region2.cancer$Locality == 'Metropolitan', ]
-region2.cancer.non <- region2.cancer[region2.cancer$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 3
-region3.cancer.met <- region3.cancer[region3.cancer$Locality == 'Metropolitan', ]
-region3.cancer.non <- region3.cancer[region3.cancer$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 4
-region4.cancer.met <- region4.cancer[region4.cancer$Locality == 'Metropolitan', ]
-region4.cancer.non <- region4.cancer[region4.cancer$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 5
-region5.cancer.met <- region5.cancer[region5.cancer$Locality == 'Metropolitan', ]
-region5.cancer.non <- region5.cancer[region5.cancer$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 6
-region6.cancer.met <- region6.cancer[region6.cancer$Locality == 'Metropolitan', ]
-region6.cancer.non <- region6.cancer[region6.cancer$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 7 
-region7.cancer.met <- region7.cancer[region7.cancer$Locality == 'Metropolitan', ]
-region7.cancer.non <- region7.cancer[region7.cancer$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 8
-region8.cancer.met <- region8.cancer[region8.cancer$Locality == 'Metropolitan', ]
-region8.cancer.non <- region8.cancer[region8.cancer$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 9
-region9.cancer.met <- region9.cancer[region9.cancer$Locality == 'Metropolitan', ]
-region9.cancer.non <- region9.cancer[region9.cancer$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 10
-region10.cancer.met <- region10.cancer[region10.cancer$Locality == 'Metropolitan', ]
-region10.cancer.non <- region10.cancer[region10.cancer$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 1
-region1.ui.met <- region1.ui[region1.ui$Locality == 'Metropolitan', ]
-region1.ui.non <- region1.ui[region1.ui$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 2
-region2.ui.met <- region2.ui[region2.ui$Locality == 'Metropolitan', ]
-region2.ui.non <- region2.ui[region2.ui$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 3
-region3.ui.met <- region3.ui[region3.ui$Locality == 'Metropolitan', ]
-region3.ui.non <- region3.ui[region3.ui$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 4
-region4.ui.met <- region4.ui[region4.ui$Locality == 'Metropolitan', ]
-region4.ui.non <- region4.ui[region4.ui$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 5
-region5.ui.met <- region5.ui[region5.ui$Locality == 'Metropolitan', ]
-region5.ui.non <- region5.ui[region5.ui$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 6
-region6.ui.met <- region6.ui[region6.ui$Locality == 'Metropolitan', ]
-region6.ui.non <- region6.ui[region6.ui$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 7
-region7.ui.met <- region7.ui[region7.ui$Locality == 'Metropolitan', ]
-region7.ui.non <- region7.ui[region7.ui$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 8
-region8.ui.met <- region8.ui[region8.ui$Locality == 'Metropolitan', ]
-region8.ui.non <- region8.ui[region8.ui$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 9
-region9.ui.met <- region9.ui[region9.ui$Locality == 'Metropolitan', ]
-region9.ui.non <- region9.ui[region9.ui$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 10
-region10.ui.met <- region10.ui[region10.ui$Locality == 'Metropolitan', ]
-region10.ui.non <- region10.ui[region10.ui$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 1
-region1.hd.met <- region1.hd[region1.hd$Locality == 'Metropolitan', ]
-region1.hd.non <- region1.hd[region1.hd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 2
-region2.hd.met <- region2.hd[region2.hd$Locality == 'Metropolitan', ]
-region2.hd.non <- region2.hd[region2.hd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 3
-region3.hd.met <- region3.hd[region3.hd$Locality == 'Metropolitan', ]
-region3.hd.non <- region3.hd[region3.hd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 4
-region4.hd.met <- region4.hd[region4.hd$Locality == 'Metropolitan', ]
-region4.hd.non <- region4.hd[region4.hd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 5
-region5.hd.met <- region5.hd[region5.hd$Locality == 'Metropolitan', ]
-region5.hd.non <- region5.hd[region5.hd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 6
-region6.hd.met <- region6.hd[region6.hd$Locality == 'Metropolitan', ]
-region6.hd.non <- region6.hd[region6.hd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 7
-region7.hd.met <- region7.hd[region7.hd$Locality == 'Metropolitan', ]
-region7.hd.non <- region7.hd[region7.hd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 8
-region8.hd.met <- region8.hd[region8.hd$Locality == 'Metropolitan', ]
-region8.hd.non <- region8.hd[region8.hd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 9
-region9.hd.met <- region9.hd[region9.hd$Locality == 'Metropolitan', ]
-region9.hd.non <- region9.hd[region9.hd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 10
-region10.hd.met <- region10.hd[region10.hd$Locality == 'Metropolitan', ]
-region10.hd.non <- region10.hd[region10.hd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 1
-region1.clrd.met <- region1.clrd[region1.clrd$Locality == 'Metropolitan', ]
-region1.clrd.non <- region1.clrd[region1.clrd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 2
-region2.clrd.met <- region2.clrd[region2.clrd$Locality == 'Metropolitan', ]
-region2.clrd.non <- region2.clrd[region2.clrd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 3
-region3.clrd.met <- region3.clrd[region3.clrd$Locality == 'Metropolitan', ]
-region3.clrd.non <- region3.clrd[region3.clrd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 4
-region4.clrd.met <- region4.clrd[region4.clrd$Locality == 'Metropolitan', ]
-region4.clrd.non <- region4.clrd[region4.clrd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 5
-region5.clrd.met <- region5.clrd[region5.clrd$Locality == 'Metropolitan', ]
-region5.clrd.non <- region5.clrd[region5.clrd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 6
-region6.clrd.met <- region6.clrd[region6.clrd$Locality == 'Metropolitan', ]
-region6.clrd.non <- region6.clrd[region6.clrd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 7
-region7.clrd.met <- region7.clrd[region7.clrd$Locality == 'Metropolitan', ]
-region7.clrd.non <- region7.clrd[region7.clrd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 8
-region8.clrd.met <- region8.clrd[region8.clrd$Locality == 'Metropolitan', ]
-region8.clrd.non <- region8.clrd[region8.clrd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 9
-region9.clrd.met <- region9.clrd[region9.clrd$Locality == 'Metropolitan', ]
-region9.clrd.non <- region9.clrd[region9.clrd$Locality == 'Nonmetropolitan', ]
-
-# Repeat for region 10
-region10.clrd.met <- region10.clrd[region10.clrd$Locality == 'Metropolitan', ]
-region10.clrd.non <- region10.clrd[region10.clrd$Locality == 'Nonmetropolitan', ]
-
-# stroke-year breakdown
-region1.stroke.met.2005 <- region1.stroke.met[region1.stroke.met$Year == '2005', ]
-region1.stroke.non.2005 <- region1.stroke.non[region1.stroke.non$Year == '2005', ]
-region1.stroke.met.2015 <- region1.stroke.met[region1.stroke.met$Year == '2015', ]
-region1.stroke.non.2015 <- region1.stroke.non[region1.stroke.non$Year == '2015', ]
-
-region2.stroke.met.2005 <- region2.stroke.met[region2.stroke.met$Year == '2005', ]
-region2.stroke.non.2005 <- region2.stroke.non[region2.stroke.non$Year == '2005', ]
-region2.stroke.met.2015 <- region2.stroke.met[region2.stroke.met$Year == '2015', ]
-region2.stroke.non.2015 <- region2.stroke.non[region2.stroke.non$Year == '2015', ]
-
-region3.stroke.met.2005 <- region3.stroke.met[region3.stroke.met$Year == '2005', ]
-region3.stroke.non.2005 <- region3.stroke.non[region3.stroke.non$Year == '2005', ]
-region3.stroke.met.2015 <- region3.stroke.met[region3.stroke.met$Year == '2015', ]
-region3.stroke.non.2015 <- region3.stroke.non[region3.stroke.non$Year == '2015', ]
-
-region4.stroke.met.2005 <- region4.stroke.met[region4.stroke.met$Year == '2005', ]
-region4.stroke.non.2005 <- region4.stroke.non[region4.stroke.non$Year == '2005', ]
-region4.stroke.met.2015 <- region4.stroke.met[region4.stroke.met$Year == '2015', ]
-region4.stroke.non.2015 <- region4.stroke.non[region4.stroke.non$Year == '2015', ]
-
-region5.stroke.met.2005 <- region5.stroke.met[region5.stroke.met$Year == '2005', ]
-region5.stroke.non.2005 <- region5.stroke.non[region5.stroke.non$Year == '2005', ]
-region5.stroke.met.2015 <- region5.stroke.met[region5.stroke.met$Year == '2015', ]
-region5.stroke.non.2015 <- region5.stroke.non[region5.stroke.non$Year == '2015', ]
-
-region6.stroke.met.2005 <- region6.stroke.met[region6.stroke.met$Year == '2005', ]
-region6.stroke.non.2005 <- region6.stroke.non[region6.stroke.non$Year == '2005', ]
-region6.stroke.met.2015 <- region6.stroke.met[region6.stroke.met$Year == '2015', ]
-region6.stroke.non.2015 <- region6.stroke.non[region6.stroke.non$Year == '2015', ]
-
-region7.stroke.met.2005 <- region7.stroke.met[region7.stroke.met$Year == '2005', ]
-region7.stroke.non.2005 <- region7.stroke.non[region7.stroke.non$Year == '2005', ]
-region7.stroke.met.2015 <- region7.stroke.met[region7.stroke.met$Year == '2015', ]
-region7.stroke.non.2015 <- region7.stroke.non[region7.stroke.non$Year == '2015', ]
-
-region8.stroke.met.2005 <- region8.stroke.met[region8.stroke.met$Year == '2005', ]
-region8.stroke.non.2005 <- region8.stroke.non[region8.stroke.non$Year == '2005', ]
-region8.stroke.met.2015 <- region8.stroke.met[region8.stroke.met$Year == '2015', ]
-region8.stroke.non.2015 <- region8.stroke.non[region8.stroke.non$Year == '2015', ]
-
-region9.stroke.met.2005 <- region9.stroke.met[region9.stroke.met$Year == '2005', ]
-region9.stroke.non.2005 <- region9.stroke.non[region9.stroke.non$Year == '2005', ]
-region9.stroke.met.2015 <- region9.stroke.met[region9.stroke.met$Year == '2015', ]
-region9.stroke.non.2015 <- region9.stroke.non[region9.stroke.non$Year == '2015', ]
-
-region10.stroke.met.2005 <- region10.stroke.met[region10.stroke.met$Year == '2005', ]
-region10.stroke.non.2005 <- region10.stroke.non[region10.stroke.non$Year == '2005', ]
-region10.stroke.met.2015 <- region10.stroke.met[region10.stroke.met$Year == '2015', ]
-region10.stroke.non.2015 <- region10.stroke.non[region10.stroke.non$Year == '2015', ]
-
-# cancer-year breakdown
-region1.cancer.met.2005 <- region1.cancer.met[region1.cancer.met$Year == '2005', ]
-region1.cancer.non.2005 <- region1.cancer.non[region1.cancer.non$Year == '2005', ]
-region1.cancer.met.2015 <- region1.cancer.met[region1.cancer.met$Year == '2015', ]
-region1.cancer.non.2015 <- region1.cancer.non[region1.cancer.non$Year == '2015', ]
-
-region2.cancer.met.2005 <- region2.cancer.met[region2.cancer.met$Year == '2005', ]
-region2.cancer.non.2005 <- region2.cancer.non[region2.cancer.non$Year == '2005', ]
-region2.cancer.met.2015 <- region2.cancer.met[region2.cancer.met$Year == '2015', ]
-region2.cancer.non.2015 <- region2.cancer.non[region2.cancer.non$Year == '2015', ]
-
-region3.cancer.met.2005 <- region3.cancer.met[region3.cancer.met$Year == '2005', ]
-region3.cancer.non.2005 <- region3.cancer.non[region3.cancer.non$Year == '2005', ]
-region3.cancer.met.2015 <- region3.cancer.met[region3.cancer.met$Year == '2015', ]
-region3.cancer.non.2015 <- region3.cancer.non[region3.cancer.non$Year == '2015', ]
-
-region4.cancer.met.2005 <- region4.cancer.met[region4.cancer.met$Year == '2005', ]
-region4.cancer.non.2005 <- region4.cancer.non[region4.cancer.non$Year == '2005', ]
-region4.cancer.met.2015 <- region4.cancer.met[region4.cancer.met$Year == '2015', ]
-region4.cancer.non.2015 <- region4.cancer.non[region4.cancer.non$Year == '2015', ]
-
-region5.cancer.met.2005 <- region5.cancer.met[region5.cancer.met$Year == '2005', ]
-region5.cancer.non.2005 <- region5.cancer.non[region5.cancer.non$Year == '2005', ]
-region5.cancer.met.2015 <- region5.cancer.met[region5.cancer.met$Year == '2015', ]
-region5.cancer.non.2015 <- region5.cancer.non[region5.cancer.non$Year == '2015', ]
-
-region6.cancer.met.2005 <- region6.cancer.met[region6.cancer.met$Year == '2005', ]
-region6.cancer.non.2005 <- region6.cancer.non[region6.cancer.non$Year == '2005', ]
-region6.cancer.met.2015 <- region6.cancer.met[region6.cancer.met$Year == '2015', ]
-region6.cancer.non.2015 <- region6.cancer.non[region6.cancer.non$Year == '2015', ]
-
-region7.cancer.met.2005 <- region7.cancer.met[region7.cancer.met$Year == '2005', ]
-region7.cancer.non.2005 <- region7.cancer.non[region7.cancer.non$Year == '2005', ]
-region7.cancer.met.2015 <- region7.cancer.met[region7.cancer.met$Year == '2015', ]
-region7.cancer.non.2015 <- region7.cancer.non[region7.cancer.non$Year == '2015', ]
-
-region8.cancer.met.2005 <- region8.cancer.met[region8.cancer.met$Year == '2005', ]
-region8.cancer.non.2005 <- region8.cancer.non[region8.cancer.non$Year == '2005', ]
-region8.cancer.met.2015 <- region8.cancer.met[region8.cancer.met$Year == '2015', ]
-region8.cancer.non.2015 <- region8.cancer.non[region8.cancer.non$Year == '2015', ]
-
-region9.cancer.met.2005 <- region9.cancer.met[region9.cancer.met$Year == '2005', ]
-region9.cancer.non.2005 <- region9.cancer.non[region9.cancer.non$Year == '2005', ]
-region9.cancer.met.2015 <- region9.cancer.met[region9.cancer.met$Year == '2015', ]
-region9.cancer.non.2015 <- region9.cancer.non[region9.cancer.non$Year == '2015', ]
-
-region10.cancer.met.2005 <- region10.cancer.met[region10.cancer.met$Year == '2005', ]
-region10.cancer.non.2005 <- region10.cancer.non[region10.cancer.non$Year == '2005', ]
-region10.cancer.met.2015 <- region10.cancer.met[region10.cancer.met$Year == '2015', ]
-region10.cancer.non.2015 <- region10.cancer.non[region10.cancer.non$Year == '2015', ]
-
-# hd-year breakdown
-region1.hd.met.2005 <- region1.hd.met[region1.hd.met$Year == '2005', ]
-region1.hd.non.2005 <- region1.hd.non[region1.hd.non$Year == '2005', ]
-region1.hd.met.2015 <- region1.hd.met[region1.hd.met$Year == '2015', ]
-region1.hd.non.2015 <- region1.hd.non[region1.hd.non$Year == '2015', ]
-
-region2.hd.met.2005 <- region2.hd.met[region2.hd.met$Year == '2005', ]
-region2.hd.non.2005 <- region2.hd.non[region2.hd.non$Year == '2005', ]
-region2.hd.met.2015 <- region2.hd.met[region2.hd.met$Year == '2015', ]
-region2.hd.non.2015 <- region2.hd.non[region2.hd.non$Year == '2015', ]
-
-region3.hd.met.2005 <- region3.hd.met[region3.hd.met$Year == '2005', ]
-region3.hd.non.2005 <- region3.hd.non[region3.hd.non$Year == '2005', ]
-region3.hd.met.2015 <- region3.hd.met[region3.hd.met$Year == '2015', ]
-region3.hd.non.2015 <- region3.hd.non[region3.hd.non$Year == '2015', ]
-
-region4.hd.met.2005 <- region4.hd.met[region4.hd.met$Year == '2005', ]
-region4.hd.non.2005 <- region4.hd.non[region4.hd.non$Year == '2005', ]
-region4.hd.met.2015 <- region4.hd.met[region4.hd.met$Year == '2015', ]
-region4.hd.non.2015 <- region4.hd.non[region4.hd.non$Year == '2015', ]
-
-region5.hd.met.2005 <- region5.hd.met[region5.hd.met$Year == '2005', ]
-region5.hd.non.2005 <- region5.hd.non[region5.hd.non$Year == '2005', ]
-region5.hd.met.2015 <- region5.hd.met[region5.hd.met$Year == '2015', ]
-region5.hd.non.2015 <- region5.hd.non[region5.hd.non$Year == '2015', ]
-
-region6.hd.met.2005 <- region6.hd.met[region6.hd.met$Year == '2005', ]
-region6.hd.non.2005 <- region6.hd.non[region6.hd.non$Year == '2005', ]
-region6.hd.met.2015 <- region6.hd.met[region6.hd.met$Year == '2015', ]
-region6.hd.non.2015 <- region6.hd.non[region6.hd.non$Year == '2015', ]
-
-region7.hd.met.2005 <- region7.hd.met[region7.hd.met$Year == '2005', ]
-region7.hd.non.2005 <- region7.hd.non[region7.hd.non$Year == '2005', ]
-region7.hd.met.2015 <- region7.hd.met[region7.hd.met$Year == '2015', ]
-region7.hd.non.2015 <- region7.hd.non[region7.hd.non$Year == '2015', ]
-
-region8.hd.met.2005 <- region8.hd.met[region8.hd.met$Year == '2005', ]
-region8.hd.non.2005 <- region8.hd.non[region8.hd.non$Year == '2005', ]
-region8.hd.met.2015 <- region8.hd.met[region8.hd.met$Year == '2015', ]
-region8.hd.non.2015 <- region8.hd.non[region8.hd.non$Year == '2015', ]
-
-region9.hd.met.2005 <- region9.hd.met[region9.hd.met$Year == '2005', ]
-region9.hd.non.2005 <- region9.hd.non[region9.hd.non$Year == '2005', ]
-region9.hd.met.2015 <- region9.hd.met[region9.hd.met$Year == '2015', ]
-region9.hd.non.2015 <- region9.hd.non[region9.hd.non$Year == '2015', ]
-
-region10.hd.met.2005 <- region10.hd.met[region10.hd.met$Year == '2005', ]
-region10.hd.non.2005 <- region10.hd.non[region10.hd.non$Year == '2005', ]
-region10.hd.met.2015 <- region10.hd.met[region10.hd.met$Year == '2015', ]
-region10.hd.non.2015 <- region10.hd.non[region10.hd.non$Year == '2015', ]
-
-# clrd-year breakdown
-region1.clrd.met.2005 <- region1.clrd.met[region1.clrd.met$Year == '2005', ]
-region1.clrd.non.2005 <- region1.clrd.non[region1.clrd.non$Year == '2005', ]
-region1.clrd.met.2015 <- region1.clrd.met[region1.clrd.met$Year == '2015', ]
-region1.clrd.non.2015 <- region1.clrd.non[region1.clrd.non$Year == '2015', ]
-
-region2.clrd.met.2005 <- region2.clrd.met[region2.clrd.met$Year == '2005', ]
-region2.clrd.non.2005 <- region2.clrd.non[region2.clrd.non$Year == '2005', ]
-region2.clrd.met.2015 <- region2.clrd.met[region2.clrd.met$Year == '2015', ]
-region2.clrd.non.2015 <- region2.clrd.non[region2.clrd.non$Year == '2015', ]
-
-region3.clrd.met.2005 <- region3.clrd.met[region3.clrd.met$Year == '2005', ]
-region3.clrd.non.2005 <- region3.clrd.non[region3.clrd.non$Year == '2005', ]
-region3.clrd.met.2015 <- region3.clrd.met[region3.clrd.met$Year == '2015', ]
-region3.clrd.non.2015 <- region3.clrd.non[region3.clrd.non$Year == '2015', ]
-
-region4.clrd.met.2005 <- region4.clrd.met[region4.clrd.met$Year == '2005', ]
-region4.clrd.non.2005 <- region4.clrd.non[region4.clrd.non$Year == '2005', ]
-region4.clrd.met.2015 <- region4.clrd.met[region4.clrd.met$Year == '2015', ]
-region4.clrd.non.2015 <- region4.clrd.non[region4.clrd.non$Year == '2015', ]
-
-region5.clrd.met.2005 <- region5.clrd.met[region5.clrd.met$Year == '2005', ]
-region5.clrd.non.2005 <- region5.clrd.non[region5.clrd.non$Year == '2005', ]
-region5.clrd.met.2015 <- region5.clrd.met[region5.clrd.met$Year == '2015', ]
-region5.clrd.non.2015 <- region5.clrd.non[region5.clrd.non$Year == '2015', ]
-
-region6.clrd.met.2005 <- region6.clrd.met[region6.clrd.met$Year == '2005', ]
-region6.clrd.non.2005 <- region6.clrd.non[region6.clrd.non$Year == '2005', ]
-region6.clrd.met.2015 <- region6.clrd.met[region6.clrd.met$Year == '2015', ]
-region6.clrd.non.2015 <- region6.clrd.non[region6.clrd.non$Year == '2015', ]
-
-region7.clrd.met.2005 <- region7.clrd.met[region7.clrd.met$Year == '2005', ]
-region7.clrd.non.2005 <- region7.clrd.non[region7.clrd.non$Year == '2005', ]
-region7.clrd.met.2015 <- region7.clrd.met[region7.clrd.met$Year == '2015', ]
-region7.clrd.non.2015 <- region7.clrd.non[region7.clrd.non$Year == '2015', ]
-
-region8.clrd.met.2005 <- region8.clrd.met[region8.clrd.met$Year == '2005', ]
-region8.clrd.non.2005 <- region8.clrd.non[region8.clrd.non$Year == '2005', ]
-region8.clrd.met.2015 <- region8.clrd.met[region8.clrd.met$Year == '2015', ]
-region8.clrd.non.2015 <- region8.clrd.non[region8.clrd.non$Year == '2015', ]
-
-region9.clrd.met.2005 <- region9.clrd.met[region9.clrd.met$Year == '2005', ]
-region9.clrd.non.2005 <- region9.clrd.non[region9.clrd.non$Year == '2005', ]
-region9.clrd.met.2015 <- region9.clrd.met[region9.clrd.met$Year == '2015', ]
-region9.clrd.non.2015 <- region9.clrd.non[region9.clrd.non$Year == '2015', ]
-
-region10.clrd.met.2005 <- region10.clrd.met[region10.clrd.met$Year == '2005', ]
-region10.clrd.non.2005 <- region10.clrd.non[region10.clrd.non$Year == '2005', ]
-region10.clrd.met.2015 <- region10.clrd.met[region10.clrd.met$Year == '2015', ]
-region10.clrd.non.2015 <- region10.clrd.non[region10.clrd.non$Year == '2015', ]
-
-# ui-year breakdown
-region1.ui.met.2005 <- region1.ui.met[region1.ui.met$Year == '2005', ]
-region1.ui.non.2005 <- region1.ui.non[region1.ui.non$Year == '2005', ]
-region1.ui.met.2015 <- region1.ui.met[region1.ui.met$Year == '2015', ]
-region1.ui.non.2015 <- region1.ui.non[region1.ui.non$Year == '2015', ]
-
-region2.ui.met.2005 <- region2.ui.met[region2.ui.met$Year == '2005', ]
-region2.ui.non.2005 <- region2.ui.non[region2.ui.non$Year == '2005', ]
-region2.ui.met.2015 <- region2.ui.met[region2.ui.met$Year == '2015', ]
-region2.ui.non.2015 <- region2.ui.non[region2.ui.non$Year == '2015', ]
-
-region3.ui.met.2005 <- region3.ui.met[region3.ui.met$Year == '2005', ]
-region3.ui.non.2005 <- region3.ui.non[region3.ui.non$Year == '2005', ]
-region3.ui.met.2015 <- region3.ui.met[region3.ui.met$Year == '2015', ]
-region3.ui.non.2015 <- region3.ui.non[region3.ui.non$Year == '2015', ]
-
-region4.ui.met.2005 <- region4.ui.met[region4.ui.met$Year == '2005', ]
-region4.ui.non.2005 <- region4.ui.non[region4.ui.non$Year == '2005', ]
-region4.ui.met.2015 <- region4.ui.met[region4.ui.met$Year == '2015', ]
-region4.ui.non.2015 <- region4.ui.non[region4.ui.non$Year == '2015', ]
-
-region5.ui.met.2005 <- region5.ui.met[region5.ui.met$Year == '2005', ]
-region5.ui.non.2005 <- region5.ui.non[region5.ui.non$Year == '2005', ]
-region5.ui.met.2015 <- region5.ui.met[region5.ui.met$Year == '2015', ]
-region5.ui.non.2015 <- region5.ui.non[region5.ui.non$Year == '2015', ]
-
-region6.ui.met.2005 <- region6.ui.met[region6.ui.met$Year == '2005', ]
-region6.ui.non.2005 <- region6.ui.non[region6.ui.non$Year == '2005', ]
-region6.ui.met.2015 <- region6.ui.met[region6.ui.met$Year == '2015', ]
-region6.ui.non.2015 <- region6.ui.non[region6.ui.non$Year == '2015', ]
-
-region7.ui.met.2005 <- region7.ui.met[region7.ui.met$Year == '2005', ]
-region7.ui.non.2005 <- region7.ui.non[region7.ui.non$Year == '2005', ]
-region7.ui.met.2015 <- region7.ui.met[region7.ui.met$Year == '2015', ]
-region7.ui.non.2015 <- region7.ui.non[region7.ui.non$Year == '2015', ]
-
-region8.ui.met.2005 <- region8.ui.met[region8.ui.met$Year == '2005', ]
-region8.ui.non.2005 <- region8.ui.non[region8.ui.non$Year == '2005', ]
-region8.ui.met.2015 <- region8.ui.met[region8.ui.met$Year == '2015', ]
-region8.ui.non.2015 <- region8.ui.non[region8.ui.non$Year == '2015', ]
-
-region9.ui.met.2005 <- region9.ui.met[region9.ui.met$Year == '2005', ]
-region9.ui.non.2005 <- region9.ui.non[region9.ui.non$Year == '2005', ]
-region9.ui.met.2015 <- region9.ui.met[region9.ui.met$Year == '2015', ]
-region9.ui.non.2015 <- region9.ui.non[region9.ui.non$Year == '2015', ]
-
-region10.ui.met.2005 <- region10.ui.met[region10.ui.met$Year == '2005', ]
-region10.ui.non.2005 <- region10.ui.non[region10.ui.non$Year == '2005', ]
-region10.ui.met.2015 <- region10.ui.met[region10.ui.met$Year == '2015', ]
-region10.ui.non.2015 <- region10.ui.non[region10.ui.non$Year == '2015', ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-
-
-
-
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-
-
-
-
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-
-
-
-
-
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-
-
-
-
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-
-
-
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-
-
-
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-
-
-
-
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-
-
-
-
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-
-
-
-
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
-
-
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
-first.year <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+sub.2005.1.can.met <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2005.1.str.met <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2005.1.ui.met <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2005.1.hd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2005.1.clrd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2005.1.can.non <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2005.1.str.non <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2005.1.ui.non <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2005.1.hd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2005.1.clrd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 1 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+sub.2015.1.can.met <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2015.1.str.met <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2015.1.ui.met <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2015.1.hd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2015.1.clrd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2015.1.can.non <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2015.1.str.non <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2015.1.ui.non <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2015.1.hd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2015.1.clrd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 1 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+sub.2005.2.can.met <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2005.2.str.met <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2005.2.ui.met <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2005.2.hd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2005.2.clrd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2005.2.can.non <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2005.2.str.non <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2005.2.ui.non <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2005.2.hd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2005.2.clrd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 2 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+sub.2015.2.can.met <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2015.2.str.met <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2015.2.ui.met <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2015.2.hd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2015.2.clrd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2015.2.can.non <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2015.2.str.non <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2015.2.ui.non <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2015.2.hd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2015.2.clrd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 2 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+sub.2005.3.can.met <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2005.3.str.met <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2005.3.ui.met <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2005.3.hd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2005.3.clrd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2005.3.can.non <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2005.3.str.non <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2005.3.ui.non <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2005.3.hd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2005.3.clrd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 3 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+sub.2015.3.can.met <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2015.3.str.met <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2015.3.ui.met <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2015.3.hd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2015.3.clrd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2015.3.can.non <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2015.3.str.non <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2015.3.ui.non <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2015.3.hd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2015.3.clrd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 3 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+sub.2005.4.can.met <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2005.4.str.met <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2005.4.ui.met <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2005.4.hd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2005.4.clrd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2005.4.can.non <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2005.4.str.non <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2005.4.ui.non <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2005.4.hd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2005.4.clrd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 4 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+sub.2015.4.can.met <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2015.4.str.met <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2015.4.ui.met <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2015.4.hd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2015.4.clrd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2015.4.can.non <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2015.4.str.non <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2015.4.ui.non <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2015.4.hd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2015.4.clrd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 4 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+sub.2005.5.can.met <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2005.5.str.met <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2005.5.ui.met <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2005.5.hd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2005.5.clrd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2005.5.can.non <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2005.5.str.non <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2005.5.ui.non <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2005.5.hd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2005.5.clrd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 5 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+sub.2015.5.can.met <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2015.5.str.met <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2015.5.ui.met <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2015.5.hd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2015.5.clrd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2015.5.can.non <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2015.5.str.non <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2015.5.ui.non <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2015.5.hd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2015.5.clrd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 5 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+sub.2005.6.can.met <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2005.6.str.met <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2005.6.ui.met <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2005.6.hd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2005.6.clrd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2005.6.can.non <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2005.6.str.non <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2005.6.ui.non <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2005.6.hd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2005.6.clrd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 6 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+sub.2015.6.can.met <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2015.6.str.met <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2015.6.ui.met <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2015.6.hd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2015.6.clrd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2015.6.can.non <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2015.6.str.non <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2015.6.ui.non <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2015.6.hd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2015.6.clrd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 6 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+sub.2005.7.can.met <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2005.7.str.met <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2005.7.ui.met <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2005.7.hd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2005.7.clrd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2005.7.can.non <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2005.7.str.non <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2005.7.ui.non <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2005.7.hd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2005.7.clrd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 7 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+sub.2015.7.can.met <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2015.7.str.met <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2015.7.ui.met <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2015.7.hd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2015.7.clrd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2015.7.can.non <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2015.7.str.non <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2015.7.ui.non <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2015.7.hd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2015.7.clrd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 7 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+sub.2005.8.can.met <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2005.8.str.met <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2005.8.ui.met <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2005.8.hd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2005.8.clrd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2005.8.can.non <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2005.8.str.non <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2005.8.ui.non <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2005.8.hd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2005.8.clrd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 8 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+sub.2015.8.can.met <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2015.8.str.met <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2015.8.ui.met <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2015.8.hd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2015.8.clrd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2015.8.can.non <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2015.8.str.non <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2015.8.ui.non <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2015.8.hd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2015.8.clrd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 8 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+sub.2005.9.can.met <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2005.9.str.met <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2005.9.ui.met <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2005.9.hd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2005.9.clrd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2005.9.can.non <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2005.9.str.non <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2005.9.ui.non <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2005.9.hd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2005.9.clrd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 9 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+sub.2015.9.can.met <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2015.9.str.met <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2015.9.ui.met <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2015.9.hd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2015.9.clrd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2015.9.can.non <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2015.9.str.non <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2015.9.ui.non <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2015.9.hd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2015.9.clrd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 9 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+
+
+sub.2005.10.can.met <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2005.10.str.met <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2005.10.ui.met <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2005.10.hd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2005.10.clrd.met <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2005.10.can.non <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2005.10.str.non <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2005.10.ui.non <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2005.10.hd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2005.10.clrd.non <- subset(nchs.data, Year == 2005 & HHS.Region == 10 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
+
+sub.2015.10.can.met <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Cancer" & Locality == "Metropolitan")
+sub.2015.10.str.met <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Stroke" & Locality == "Metropolitan")
+sub.2015.10.ui.met <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Unintentional Injury" & Locality == "Metropolitan")
+sub.2015.10.hd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Heart Disease" & Locality == "Metropolitan")
+sub.2015.10.clrd.met <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Metropolitan")
+sub.2015.10.can.non <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Cancer" & Locality == "Nonmetropolitan")
+sub.2015.10.str.non <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Stroke" & Locality == "Nonmetropolitan")
+sub.2015.10.ui.non <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Unintentional Injury" & Locality == "Nonmetropolitan")
+sub.2015.10.hd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Heart Disease" & Locality == "Nonmetropolitan")
+sub.2015.10.clrd.non <- subset(nchs.data, Year == 2015 & HHS.Region == 10 & Cause.of.Death == "Chronic Lower Respiratory Disease" & Locality == "Nonmetropolitan")
