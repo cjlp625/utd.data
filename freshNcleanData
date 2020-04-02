@@ -3,7 +3,6 @@ library(ggplot2)
 library(UsingR)
 library(dbplyr)
 library(plyr)
-
 # Loading data
 nchs.data <- read.csv(file = 'nchs.csv', header = TRUE)
 
@@ -12,32 +11,6 @@ nchs.data[is.na(nchs.data)] <- 0
 
 #Removing Scientific notaion
 options(scipen=999)
-
-##Accessing each reagion index number and assigning it to a distinct value
-index_0 <- which(nchs.data$HHS.Region == 0)
-index_1 <- which(nchs.data$HHS.Region == 1)
-index_2 <- which(nchs.data$HHS.Region == 2)
-index_3 <- which(nchs.data$HHS.Region == 3)
-index_4 <- which(nchs.data$HHS.Region == 4)
-index_5 <- which(nchs.data$HHS.Region == 5)
-index_6 <- which(nchs.data$HHS.Region == 6)
-index_7 <- which(nchs.data$HHS.Region == 7)
-index_8 <- which(nchs.data$HHS.Region == 8)
-index_9 <- which(nchs.data$HHS.Region == 9)
-index_10 <- which(nchs.data$HHS.Region == 10)
-
-#Changing the region values to characters so we can analyze them as distinct variable and not continuous values
-nchs.data$HHS.Region[index_0] <- as.character('All')
-nchs.data$HHS.Region[index_1] <- as.character('R1')
-nchs.data$HHS.Region[index_2] <- as.character('R2')
-nchs.data$HHS.Region[index_3] <- as.character('R3')
-nchs.data$HHS.Region[index_4] <- as.character('R4')
-nchs.data$HHS.Region[index_5] <- as.character('R5')
-nchs.data$HHS.Region[index_6] <- as.character('R6')
-nchs.data$HHS.Region[index_7] <- as.character('R7')
-nchs.data$HHS.Region[index_8] <- as.character('R8')
-nchs.data$HHS.Region[index_9] <- as.character('R9')
-nchs.data$HHS.Region[index_10] <- as.character('R10')
 
 ##Accessing each the year variable index number and assigning it to a distinct value
 index_2005 <- which(nchs.data$Year == 2005)
@@ -49,7 +22,7 @@ nchs.data$Year[index_2005] <- as.character('2005')
 nchs.data$Year[index_2010] <- as.character('2010')
 nchs.data$Year[index_2015] <- as.character('2015')
 
-##My Custom theme
+##Making my own theme
 my.theme <- theme(plot.title = element_text(face = "bold", size = (15), colour = "midnightblue", hjust = 0.5), 
                   legend.title = element_text(colour = "steelblue",  face = "bold.italic" ), 
                   legend.text = element_text(face = "italic", colour="blue"), 
@@ -58,29 +31,29 @@ my.theme <- theme(plot.title = element_text(face = "bold", size = (15), colour =
 
 
 
-##A Subset of the general population of the United States in 2005 that includes ALL Regions 
+##A Subset of the general population of the United States in 2005 that includes all Regions 
 sub.2005.0.All <- as.data.frame(subset(nchs.data, Year == '2005' & HHS.Region == 'All' & Locality == "All" & Benchmark == "Floating"))
 ##2010
 sub.2010.0.All <- as.data.frame(subset(nchs.data, Year == '2010' & HHS.Region == 'All' & Locality == "All" & Benchmark == "Floating"))
 ##2015
 sub.2015.0.All <- as.data.frame(subset(nchs.data, Year == '2015' & HHS.Region == 'All' & Locality == "All" & Benchmark == "Floating"))
 
-##Subsets divided by regions to further analyze and identify Causes of Death Statistics for each Region in the US from (200-2015)
-sub.2005.regions <- subset(nchs.data, Year == '2005' & HHS.Region == c('R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8', 'R9', 'R10') & Benchmark == "Floating")
-##2010
-sub.2010.regions <- subset(nchs.data, Year == '2010' & HHS.Region == c('R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8', 'R9', 'R10') & Benchmark == "Floating")
-##2015
-sub.2010.regions <- subset(nchs.data, Year == '2015' & HHS.Region == c('R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8', 'R9', 'R10') & Benchmark == "Floating")
-
 ##Subseting a dataset that will help us analyze the changes in Observed death and causes of death every 5 years: 2005/2010/2015
 yearly.changes <- Reduce(function(x, y) merge(x, y, all=TRUE), list(sub.2005.0.All, sub.2010.0.All, sub.2015.0.All))
 
 ##Analyzing the yearly changes in Population from 2005-2015
-changes.2005 <- ddply(yearly.changes, .(Cause.of.Death), summarise, Observed.Deaths.mean = round(mean(Observed.Deaths), digits = 0))
+population.changes <- ggplot(nchs.data, aes(Year, Population, color = Cause.of.Death, fill = Cause.of.Death)) + my.theme + geom_col(position = 'dodge', fill = 'brown1')
+population.changes + ggtitle('2005-2015: Yearly Total Population Changes') + my.theme + ylab("Population") + xlab('Years') 
+
 population.changes <- ggplot(yearly.changes, aes(Year, Population)) + my.theme + geom_col(position = 'dodge', fill = 'brown1')
 population.changes + ggtitle('2005-2015: Yearly Total Population Changes') + my.theme + ylab("Population") + xlab('Years') 
 
-##Analizing the Observed death rate by cause of death in 2005 and getting the average obsereved deaths per cause of death
+##Further Analysis of the increase/decrease of observed death by cause of death from 2005-2015
+yearly.obs.death <- ggplot(yearly.changes, aes(Year, Observed.Deaths, color = Cause.of.Death, fill = Cause.of.Death)) + geom_col(position = "dodge")
+yearly.obs.death + ggtitle('2005-2015: Observed Death by Causes of Death') + my.theme + ylab("Observed Death") + xlab('Years') 
+
+
+##Analyzing the Observed death rate by cause of death in 2005 and getting the average obsereved deaths per cause of death
 #Cancer: 226,774
 #Heart Disease: 172,885
 #Unintentional Injury: 82,926
@@ -88,8 +61,8 @@ population.changes + ggtitle('2005-2015: Yearly Total Population Changes') + my.
 #Stroke: 32,231
 cod.data.2005 <- ddply(sub.2005.0.All, .(Cause.of.Death), summarise, Observed.Deaths.mean = round(mean(Observed.Deaths), digits = 0))
 cod.obsdeath <- ggplot(sub.2005.0.All, aes(Cause.of.Death, Observed.Deaths)) + ggtitle('2005: Cause of Death Vs. Obsereved Death') + my.theme + stat_boxplot(geom ='errorbar')  
-cod.obs.box <- cod.obsdeath + geom_boxplot(color = 'steelblue', fill = 'lightskyblue') + ylab("Obsereved Death") + xlab('Causes of Death')
-cod.obs.box + geom_text(data = cod.data.2005, aes(x = Cause.of.Death, y = Observed.Deaths.mean, label = paste0("Mean:  ",prettyNum(Observed.Deaths.mean,big.mark=",",scientific=FALSE))), vjust = -15.5, size = 5)+ylim(0,800000) 
+cod.obs.box <- cod.obsdeath + geom_boxplot(color = 'steelblue', fill = 'lightskyblue') + ylab("Observed Death") + xlab('Causes of Death')
+cod.obs.box + geom_text(data = cod.data.2005, aes(x = Cause.of.Death, y = Observed.Deaths.mean, label = paste0("Mean:  ",prettyNum(Observed.Deaths.mean,big.mark=",",scientific=FALSE))), vjust = -19, size = 5) + ylim(0,500000) 
 
 ##Analizing the Observed death rate by cause of death in 2010 and getting the average obsereved deaths per cause of death
 #Cancer: 231,247
@@ -98,24 +71,21 @@ cod.obs.box + geom_text(data = cod.data.2005, aes(x = Cause.of.Death, y = Observ
 #Chronic Lower Resp. Dis. : 37,474
 #Stroke: 29,790
 cod.data.2010 <- ddply(sub.2010.0.All, .(Cause.of.Death), summarise, Observed.Deaths.mean = round(mean(Observed.Deaths), digits = 0))
-cod.obsdeath <- ggplot(sub.2010.0.All, aes(Cause.of.Death, Observed.Deaths)) + ggtitle('2010: Cause of Death Vs. Obsereved Death') + my.theme + stat_boxplot(geom ='errorbar')  
-cod.obs.box <- cod.obsdeath + geom_boxplot(color = 'steelblue', fill = 'lightskyblue') + ylab("Obsereved Death") + xlab('Causes of Death')
-cod.obs.box + geom_text(data = cod.data.2010, aes(x = Cause.of.Death, y = Observed.Deaths.mean, label = paste0("Mean:  ",prettyNum(Observed.Deaths.mean,big.mark=",",scientific=FALSE))), vjust = -15.5, size = 5)+ylim(0,800000) 
+cod.obsdeath <- ggplot(sub.2010.0.All, aes(Cause.of.Death, Observed.Deaths)) + ggtitle('2010: Cause of Death Vs. Observed Death') + my.theme + stat_boxplot(geom ='errorbar')  
+cod.obs.box <- cod.obsdeath + geom_boxplot(color = 'steelblue', fill = 'lightskyblue') + ylab("Observed Death") + xlab('Causes of Death')
+cod.obs.box + geom_text(data = cod.data.2010, aes(x = Cause.of.Death, y = Observed.Deaths.mean, label = paste0("Mean:  ",prettyNum(Observed.Deaths.mean,big.mark=",",scientific=FALSE))), vjust = -19, size = 5) + ylim(0,500000) 
 
-##Analizing the Observed death rate by cause of death in 2010 and getting the average obsereved deaths per cause of death
+##Analizing the Observed death rate by cause of death in 2015 and getting the average obsereved deaths per cause of death
 #Cancer: 236,162
 #Heart Disease: 172,597
 #Unintentional Injury: 96,291
 #Chronic Lower Resp. Dis. : 42,508
 #Stroke: 31,492
 cod.data.2015 <- ddply(sub.2015.0.All, .(Cause.of.Death), summarise, Observed.Deaths.mean = round(mean(Observed.Deaths), digits = 0))
-cod.obsdeath <- ggplot(sub.2015.0.All, aes(Cause.of.Death, Observed.Deaths)) + ggtitle('2010: Cause of Death Vs. Obsereved Death') + my.theme + stat_boxplot(geom ='errorbar')  
-cod.obs.box <- cod.obsdeath + geom_boxplot(color = 'steelblue', fill = 'lightskyblue') + ylab("Obsereved Death") + xlab('Causes of Death')
-cod.obs.box + geom_text(data = cod.data.2015, aes(x = Cause.of.Death, y = Observed.Deaths.mean, label = paste0("Mean:  ",prettyNum(Observed.Deaths.mean,big.mark=",",scientific=FALSE))), vjust = -15.5, size = 5)+ylim(0,800000) 
+cod.obsdeath <- ggplot(sub.2015.0.All, aes(Cause.of.Death, Observed.Deaths)) + ggtitle('2015: Cause of Death Vs. Observed Death') + my.theme + stat_boxplot(geom ='errorbar')  
+cod.obs.box <- cod.obsdeath + geom_boxplot(color = 'steelblue', fill = 'lightskyblue') + ylab("Observed Death") + xlab('Causes of Death')
+cod.obs.box + geom_text(data = cod.data.2015, aes(x = Cause.of.Death, y = Observed.Deaths.mean, label = paste0("Mean:  ",prettyNum(Observed.Deaths.mean,big.mark=",",scientific=FALSE))), vjust = -19, size = 5) + ylim(0,500000) 
 
-##Further Analysis of the increase/decrease of observed death by cause of death from 2005-2015
-yearly.obs.death <- ggplot(yearly.changes, aes(Year, Observed.Deaths, color = Cause.of.Death, fill = Cause.of.Death)) + geom_col(position = "dodge")
-yearly.obs.death + ggtitle('2005-2015: Observed Death by Causes of Death') + my.theme + ylab("Obsereved Death") + xlab('Years') 
 
 ##Yearly changes of causes of death: Cancer
 cancer.2005.data <- density(sub.2005.0.All$Observed.Deaths[which(sub.2005.0.All$Cause.of.Death == 'Cancer')])
@@ -129,7 +99,7 @@ xmin.0 <- min(cancer.2005.data$x, cancer.2005.data$x)
 xmax.0 <-max(cancer.2005.data$x, cancer.2005.data$x)
 
 #Density plot that compares the density of Cancer observed death from 2005-2015
-plot(cancer.2005.data, xlim = c(xmin.0, xmax.0), ylim = c(ymin.0, ymax.0), xlab = 'Cancer', main = 'Cancer: Density of Obsereved Death', col = 'green', lwd = 2.5, lty = 1)
+plot(cancer.2005.data, xlim = c(xmin.0, xmax.0), ylim = c(ymin.0, ymax.0), xlab = 'Cancer', main = 'Cancer: Density of Observed Death', col = 'green', lwd = 2.5, lty = 1)
 lines(cancer.2010.data, col = 'red', lwd = 2.5, lty = 5)
 lines(cancer.2015.data, col = 'blue',  lwd = 2.5, lty = 4.5)
 legend("topright", legend = c('2005', '2010', '2015'), bty = "n", lty = 1:4.5, col = c("green", "red", "blue"))
@@ -147,7 +117,7 @@ xmin.1 <- min(hd.2005.data$x, hd.2005.data$x)
 xmax.1 <-max(hd.2005.data$x, hd.2005.data$x)
 
 #Density plot that compares the density of Heart Disease observed death from 2005-2015
-plot(hd.2005.data, xlim = c(xmin.1, xmax.1), ylim = c(ymin.1, ymax.1), xlab = 'Heart Disease', main = 'Heart Disease: Density of Obsereved Death', col = 'green', lwd = 2.5, lty = 1)
+plot(hd.2005.data, xlim = c(xmin.1, xmax.1), ylim = c(ymin.1, ymax.1), xlab = 'Heart Disease', main = 'Heart Disease: Density of Observed Death', col = 'green', lwd = 2.5, lty = 1)
 lines(hd.2010.data, col = 'red', lwd = 2.5, lty = 5)
 lines(hd.2015.data, col = 'blue',  lwd = 2.5, lty = 4.5)
 legend("topright", legend = c('2005', '2010', '2015'), bty = "n", lty = 1:4.5, col = c("green", "red", "blue"))
@@ -165,7 +135,7 @@ xmin.2 <- min(clrd.2005.data$x, clrd.2005.data$x)
 xmax.2 <-max(clrd.2005.data$x, clrd.2005.data$x)
 
 #Density plot that compares the density of Chronic Lower Respiratory Disease observed death from 2005-2015
-plot(clrd.2005.data, xlim = c(xmin.2, xmax.2), ylim = c(ymin.2, ymax.2), xlab = 'Chronic Lower Respiratory Disease', main = 'Chronic Lower Respiratory Disease: Density of Obsereved Death', col = 'green', lwd = 2.5, lty = 1)
+plot(clrd.2005.data, xlim = c(xmin.2, xmax.2), ylim = c(ymin.2, ymax.2), xlab = 'Chronic Lower Respiratory Disease', main = 'Chronic Lower Respiratory Disease: Density of Observed Death', col = 'green', lwd = 2.5, lty = 1)
 lines(clrd.2010.data, col = 'red', lwd = 2.5, lty = 5)
 lines(clrd.2015.data, col = 'blue',  lwd = 2.5, lty = 4.5)
 legend("topright", legend = c('2005', '2010', '2015'), bty = "n", lty = 1:4.5, col = c("green", "red", "blue"))
@@ -183,7 +153,7 @@ xmin.3 <- min(ui.2005.data$x, ui.2005.data$x)
 xmax.3 <-max(ui.2005.data$x, ui.2005.data$x)
 
 #Density plot that compares the density of Unintentional Injury observed death from 2005-2015
-plot(ui.2005.data, xlim = c(xmin.3, 150000), ylim = c(ymin.3, ymax.3), xlab = 'Unintentional Injury', main = 'Unintentional Injury: Density of Obsereved Death', col = 'green', lwd = 2.5, lty = 1)
+plot(ui.2005.data, xlim = c(xmin.3, 150000), ylim = c(ymin.3, ymax.3), xlab = 'Unintentional Injury', main = 'Unintentional Injury: Density of Observed Death', col = 'green', lwd = 2.5, lty = 1)
 lines(ui.2010.data, col = 'red', lwd = 2.5, lty = 5)
 lines(ui.2015.data, col = 'blue',  lwd = 2.5, lty = 4.5)
 legend("topright", legend = c('2005', '2010', '2015'), bty = "n", lty = 1:4.5, col = c("green", "red", "blue"))
@@ -200,9 +170,10 @@ ymax.4 <-max(stroke.2005.data$y, stroke.2005.data$y)
 xmin.4 <- min(stroke.2005.data$x, stroke.2005.data$x)
 xmax.4 <-max(stroke.2005.data$x, stroke.2005.data$x)
 
-#Density plot that compares the density of Unintentional Injury observed death from 2005-2015
-plot(ui.2005.data, xlim = c(0, 150000), ylim = c(ymin.4, .000025), xlab = 'Stroke', main = 'Stroke: Density of Obsereved Death', col = 'green', lwd = 2.5, lty = 1)
+#Density plot that compares the density of Unintentional Injury Observed death from 2005-2015
+plot(ui.2005.data, xlim = c(0, 150000), ylim = c(ymin.4, .000025), xlab = 'Stroke', main = 'Stroke: Density of Observed Death', col = 'green', lwd = 2.5, lty = 1)
 lines(ui.2010.data, col = 'red', lwd = 2.5, lty = 5)
 lines(ui.2015.data, col = 'blue',  lwd = 2.5, lty = 4.5)
 legend("topright", legend = c('2005', '2010', '2015'), bty = "n", lty = 1:4.5, col = c("green", "red", "blue"))
+
 
