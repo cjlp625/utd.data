@@ -47,6 +47,7 @@ sub.2010.0.All <- as.data.frame(subset(nchs.data, Year == "2010" & HHS.Region ==
 sub.2015.0.All <- as.data.frame(subset(nchs.data, Year == "2015" & HHS.Region == "All" & Locality == "All" & Benchmark == "Floating"))
 
 yearly.changes <- Reduce(function(x, y) merge(x, y, all=TRUE), list(sub.2005.0.All, sub.2010.0.All, sub.2015.0.All))
+sub.all <- subset(nchs.data, HHS.Region == "All" & Locality == "All" & Benchmark == "Floating" & Age.Range == "0-84")
 
 sub.1.met <- subset(nchs.data, HHS.Region == "R1" & Locality == "Metropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
 sub.1.non <- subset(nchs.data, HHS.Region == "R1" & Locality == "Nonmetropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
