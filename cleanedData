@@ -407,3 +407,70 @@ hd.15 <- Reduce(function(x, y) merge(x, y, all=TRUE), list(sub.2015.1.hd.met.old
 clrd.05 <- Reduce(function(x, y) merge(x, y, all=TRUE), list(sub.2005.1.clrd.met.old.fl, sub.2005.1.clrd.non.old.fl, sub.2005.2.clrd.met.old.fl, sub.2005.2.clrd.non.old.fl, sub.2005.3.clrd.met.old.fl, sub.2005.3.clrd.non.old.fl, sub.2005.4.clrd.met.old.fl, sub.2005.4.clrd.non.old.fl, sub.2005.5.clrd.met.old.fl, sub.2005.5.clrd.non.old.fl, sub.2005.6.clrd.met.old.fl, sub.2005.6.clrd.non.old.fl, sub.2005.7.clrd.met.old.fl, sub.2005.7.clrd.non.old.fl, sub.2005.8.clrd.met.old.fl, sub.2005.8.clrd.non.old.fl, sub.2005.9.clrd.met.old.fl, sub.2005.9.clrd.non.old.fl, sub.2005.10.clrd.met.old.fl, sub.2005.10.clrd.non.old.fl))
 clrd.10 <- Reduce(function(x, y) merge(x, y, all=TRUE), list(sub.2010.1.clrd.met.old.fl, sub.2010.1.clrd.non.old.fl, sub.2010.2.clrd.met.old.fl, sub.2010.2.clrd.non.old.fl, sub.2010.3.clrd.met.old.fl, sub.2010.3.clrd.non.old.fl, sub.2010.4.clrd.met.old.fl, sub.2010.4.clrd.non.old.fl, sub.2010.5.clrd.met.old.fl, sub.2010.5.clrd.non.old.fl, sub.2010.6.clrd.met.old.fl, sub.2010.6.clrd.non.old.fl, sub.2010.7.clrd.met.old.fl, sub.2010.7.clrd.non.old.fl, sub.2010.8.clrd.met.old.fl, sub.2010.8.clrd.non.old.fl, sub.2010.9.clrd.met.old.fl, sub.2010.9.clrd.non.old.fl, sub.2010.10.clrd.met.old.fl, sub.2010.10.clrd.non.old.fl))
 clrd.15 <- Reduce(function(x, y) merge(x, y, all=TRUE), list(sub.2015.1.clrd.met.old.fl, sub.2015.1.clrd.non.old.fl, sub.2015.2.clrd.met.old.fl, sub.2015.2.clrd.non.old.fl, sub.2015.3.clrd.met.old.fl, sub.2015.3.clrd.non.old.fl, sub.2015.4.clrd.met.old.fl, sub.2015.4.clrd.non.old.fl, sub.2015.5.clrd.met.old.fl, sub.2015.5.clrd.non.old.fl, sub.2015.6.clrd.met.old.fl, sub.2015.6.clrd.non.old.fl, sub.2015.7.clrd.met.old.fl, sub.2015.7.clrd.non.old.fl, sub.2015.8.clrd.met.old.fl, sub.2015.8.clrd.non.old.fl, sub.2015.9.clrd.met.old.fl, sub.2015.9.clrd.non.old.fl, sub.2015.10.clrd.met.old.fl, sub.2015.10.clrd.non.old.fl))
+
+sum(can.05$Expected.Deaths)
+sum(clrd.05$Expected.Deaths)
+sum(hd.05$Expected.Deaths)
+sum(str.05$Expected.Deaths)
+sum(ui.05$Expected.Deaths)
+
+sum(can.05$Potentially.Excess.Deaths)
+sum(clrd.05$Potentially.Excess.Deaths)
+sum(hd.05$Potentially.Excess.Deaths)
+sum(str.05$Potentially.Excess.Deaths)
+sum(ui.05$Potentially.Excess.Deaths)
+
+expect.tot.05 <- c(378650, 66802, 286355, 57836, 57209)
+excess.tot.05 <- c(97675, 31943, 122889, 27966, 46512)
+names.death <- c("Cancer", "Chronic Lower Respiratory Disease", "Heart Disease", "Stroke", "Unintentional Injury")
+
+expect.05.df <- data.frame(names.death, expect.tot.05)
+excess.05.df <- data.frame(names.death, excess.tot.05)
+
+expect.tot.05.pie <- ggplot(data = expect.05.df, aes(x = "", y = expect.tot.05, fill = names.death)) + geom_bar(width = 1, stat = "identity") + coord_polar("y", start = 0) + geom_text(aes(label = paste(round(expect.tot.05 / sum(expect.tot.05) * 100, 1), "%")), position = position_stack(vjust = 0.5)) + labs(title = "Total Percentage of Expected Deaths per Type of Death in 2005", y = "Expected Deaths", fill = "Type of Death")
+excess.tot.05.pie <- ggplot(data = excess.05.df, aes(x = "", y = excess.tot.05, fill = names.death)) + geom_bar(width = 1, stat = "identity") + coord_polar("y", start = 0) + geom_text(aes(label = paste(round(excess.tot.05 / sum(excess.tot.05) * 100, 1), "%")), position = position_stack(vjust = 0.5)) + labs(title = "Total Percentage of Potentially Excess Deaths per Type of Death in 2005", y = "Potentially Excess Deaths", fill = "Type of Death")
+grid.arrange(expect.tot.05.pie, excess.tot.05.pie, ncol = 2)
+
+sum(can.10$Expected.Deaths)
+sum(clrd.10$Expected.Deaths)
+sum(hd.10$Expected.Deaths)
+sum(str.10$Expected.Deaths)
+sum(ui.10$Expected.Deaths)
+
+sum(can.10$Potentially.Excess.Deaths)
+sum(clrd.10$Potentially.Excess.Deaths)
+sum(hd.10$Potentially.Excess.Deaths)
+sum(str.10$Potentially.Excess.Deaths)
+sum(ui.10$Potentially.Excess.Deaths)
+
+expect.tot.10 <- c(384664, 59537, 248197, 51277, 62429)
+excess.tot.10 <- c(95463, 40737, 114860, 23791, 40667)
+
+expect.10.df <- data.frame(names.death, expect.tot.10)
+excess.10.df <- data.frame(names.death, excess.tot.10)
+
+expect.tot.10.pie <- ggplot(data = expect.10.df, aes(x = "", y = expect.tot.10, fill = names.death)) + geom_bar(width = 1, stat = "identity") + coord_polar("y", start = 0) + geom_text(aes(label = paste(round(expect.tot.10 / sum(expect.tot.10) * 100, 1), "%")), position = position_stack(vjust = 0.5)) + labs(title = "Total Percentage of Expected Deaths per Type of Death in 2010", y = "Expected Deaths", fill = "Type of Death")
+excess.tot.10.pie <- ggplot(data = excess.10.df, aes(x = "", y = excess.tot.10, fill = names.death)) + geom_bar(width = 1, stat = "identity") + coord_polar("y", start = 0) + geom_text(aes(label = paste(round(excess.tot.10 / sum(excess.tot.10) * 100, 1), "%")), position = position_stack(vjust = 0.5)) + labs(title = "Total Percentage of Potentially Excess Deaths per Type of Death in 2010", y = "Potentially Excess Deaths", fill = "Type of Death")
+grid.arrange(expect.tot.10.pie, excess.tot.10.pie, ncol = 2)
+
+sum(can.15$Expected.Deaths)
+sum(clrd.15$Expected.Deaths)
+sum(hd.15$Expected.Deaths)
+sum(str.15$Expected.Deaths)
+sum(ui.15$Expected.Deaths)
+
+sum(can.15$Potentially.Excess.Deaths)
+sum(clrd.15$Potentially.Excess.Deaths)
+sum(hd.15$Potentially.Excess.Deaths)
+sum(str.15$Potentially.Excess.Deaths)
+sum(ui.15$Potentially.Excess.Deaths)
+
+expect.tot.15 <- c(403494, 66518, 257381, 51509, 76376)
+excess.tot.15 <- c(90797, 44388, 126418, 27580, 47468)
+
+expect.15.df <- data.frame(names.death, expect.tot.15)
+excess.15.df <- data.frame(names.death, excess.tot.15)
+
+expect.tot.15.pie <- ggplot(data = expect.15.df, aes(x = "", y = expect.tot.15, fill = names.death)) + geom_bar(width = 1, stat = "identity") + coord_polar("y", start = 0) + geom_text(aes(label = paste(round(expect.tot.15 / sum(expect.tot.15) * 100, 1), "%")), position = position_stack(vjust = 0.5)) + labs(title = "Total Percentage of Expected Deaths per Type of Death in 2015", y = "Expected Deaths", fill = "Type of Death")
+excess.tot.15.pie <- ggplot(data = excess.15.df, aes(x = "", y = excess.tot.15, fill = names.death)) + geom_bar(width = 1, stat = "identity") + coord_polar("y", start = 0) + geom_text(aes(label = paste(round(excess.tot.15 / sum(excess.tot.15) * 100, 1), "%")), position = position_stack(vjust = 0.5)) + labs(title = "Total Percentage of Potentially Excess Deaths per Type of Death in 2015", y = "Potentially Excess Deaths", fill = "Type of Death")
+grid.arrange(expect.tot.15.pie, excess.tot.15.pie, ncol = 2)
