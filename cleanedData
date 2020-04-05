@@ -48,6 +48,39 @@ sub.2015.0.All <- as.data.frame(subset(nchs.data, Year == "2015" & HHS.Region ==
 
 yearly.changes <- Reduce(function(x, y) merge(x, y, all=TRUE), list(sub.2005.0.All, sub.2010.0.All, sub.2015.0.All))
 
+sub.1.met <- subset(nchs.data, HHS.Region == "R1" & Locality == "Metropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.1.non <- subset(nchs.data, HHS.Region == "R1" & Locality == "Nonmetropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.2.met <- subset(nchs.data, HHS.Region == "R2" & Locality == "Metropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.2.non <- subset(nchs.data, HHS.Region == "R2" & Locality == "Nonmetropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.3.met <- subset(nchs.data, HHS.Region == "R3" & Locality == "Metropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.3.non <- subset(nchs.data, HHS.Region == "R3" & Locality == "Nonmetropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.4.met <- subset(nchs.data, HHS.Region == "R4" & Locality == "Metropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.4.non <- subset(nchs.data, HHS.Region == "R4" & Locality == "Nonmetropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.5.met <- subset(nchs.data, HHS.Region == "R5" & Locality == "Metropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.5.non <- subset(nchs.data, HHS.Region == "R5" & Locality == "Nonmetropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.6.met <- subset(nchs.data, HHS.Region == "R6" & Locality == "Metropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.6.non <- subset(nchs.data, HHS.Region == "R6" & Locality == "Nonmetropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.7.met <- subset(nchs.data, HHS.Region == "R7" & Locality == "Metropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.7.non <- subset(nchs.data, HHS.Region == "R7" & Locality == "Nonmetropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.8.met <- subset(nchs.data, HHS.Region == "R8" & Locality == "Metropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.8.non <- subset(nchs.data, HHS.Region == "R8" & Locality == "Nonmetropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.9.met <- subset(nchs.data, HHS.Region == "R9" & Locality == "Metropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.9.non <- subset(nchs.data, HHS.Region == "R9" & Locality == "Nonmetropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.10.met <- subset(nchs.data, HHS.Region == "R10" & Locality == "Metropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+sub.10.non <- subset(nchs.data, HHS.Region == "R10" & Locality == "Nonmetropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
+
+total.obs <- Reduce(function(x, y) merge(x, y, all = TRUE), list(sub.1.met, sub.1.non, sub.2.met, sub.2.non, sub.3.met, sub.3.non, sub.4.met, sub.4.non, sub.5.met, sub.5.non, sub.6.met, sub.6.non, sub.7.met, sub.7.non, sub.8.met, sub.8.non, sub.9.met, sub.9.non, sub.10.met, sub.10.non))
+
+
+
+
+
+
+
+
+
+
+
 
 sub.2005.1.can.met.old.fl <- subset(nchs.data, Year == "2005" & HHS.Region == "R1" & Cause.of.Death == "Cancer" & Locality == "Metropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
 sub.2005.1.str.met.old.fl <- subset(nchs.data, Year == "2005" & HHS.Region == "R1" & Cause.of.Death == "Stroke" & Locality == "Metropolitan" & Age.Range == "0-84" & Benchmark == "Floating")
